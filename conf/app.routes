@@ -1,0 +1,3 @@
+# microservice specific routes
+
+GET        /empref/:empref/declarations        uk.gov.hmrc.apprenticeshiplevy.controllers.LevyDeclarationController.declarations(empref:String, months :Option[Int])
