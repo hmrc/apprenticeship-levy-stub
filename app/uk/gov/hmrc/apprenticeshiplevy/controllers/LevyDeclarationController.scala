@@ -16,14 +16,16 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.controllers
 
-import play.api.libs.json.Json
-import play.api.mvc.Action
 import uk.gov.hmrc.apprenticeshiplevy.data.LevyData
+import play.api.libs.json.Json
+import play.api.mvc.{Action, Request}
+import uk.gov.hmrc.play.http.HeaderCarrier
 import uk.gov.hmrc.play.microservice.controller.BaseController
 
 object LevyDeclarationController extends LevyDeclarationController
 
 trait LevyDeclarationController extends BaseController {
+  implicit def hc(implicit request: Request[_]): HeaderCarrier = HeaderCarrier.fromHeadersAndSession(request.headers, Some(request.session))
 
   def declarations(empref: String, months: Option[Int]) = Action { implicit request =>
     LevyData.data.get(empref) match {

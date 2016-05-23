@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package data
+package uk.gov.hmrc.apprenticeshiplevy.data
 
 import org.joda.time.LocalDate
 
@@ -29,6 +29,6 @@ object LevyData {
       ))
     )
 
-  val data: Map[String, List[LevyDeclarations]] = declarations.groupBy(_.empref)
+  val data: Map[String, LevyDeclarations] = declarations.groupBy(_.empref).map(e => e._1 -> e._2.head)
 
 }

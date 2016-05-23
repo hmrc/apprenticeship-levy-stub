@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package data
+package uk.gov.hmrc.apprenticeshiplevy.data
 
 import org.joda.time.LocalDate
 import play.api.libs.json.Json

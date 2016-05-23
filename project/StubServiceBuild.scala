@@ -7,6 +7,8 @@ object StubServiceBuild extends Build with MicroService {
   val appVersion = envOrElse("APPRENTICESHIP_LEVY_STUB_VERSION", "999-SNAPSHOT")
 
   override lazy val appDependencies: Seq[ModuleID] = AppDependencies()
+
+  override val defaultPort: Int = 9475
 }
 
 private object AppDependencies {
