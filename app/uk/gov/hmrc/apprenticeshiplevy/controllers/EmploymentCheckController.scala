@@ -16,19 +16,15 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.controllers
 
-import uk.gov.hmrc.apprenticeshiplevy.data.LevyData
-import play.api.libs.json.Json
-import play.api.mvc.{Action, Request}
-import uk.gov.hmrc.play.http.HeaderCarrier
+import org.joda.time.LocalDate
+import play.api.libs.json.JsString
+import play.api.mvc.Action
 import uk.gov.hmrc.play.microservice.controller.BaseController
 
-object LevyDeclarationController extends LevyDeclarationController
+object EmploymentCheckController extends EmploymentCheckController
 
-trait LevyDeclarationController extends BaseController {
-  def declarations(empref: String, months: Option[Int]) = Action { implicit request =>
-    LevyData.data.get(empref) match {
-      case Some(ds) => Ok(Json.toJson(ds))
-      case None => NotFound
-    }
+trait EmploymentCheckController extends BaseController {
+  def check(empref: String, nino:String,atDate: Option[LocalDate]) = Action { implicit request =>
+    Ok(JsString("employed"))
   }
 }

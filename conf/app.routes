@@ -1,3 +1,4 @@
 # microservice specific routes
 
-GET        /empref/:empref/declarations        uk.gov.hmrc.apprenticeshiplevy.controllers.LevyDeclarationController.declarations(empref:String, months :Option[Int])
+GET        /empref/:empref/declarations          uk.gov.hmrc.apprenticeshiplevy.controllers.LevyDeclarationController.declarations(empref:String, months :Option[Int])
+GET        /empref/:empref/employee/:nino        uk.gov.hmrc.apprenticeshiplevy.controllers.EmploymentCheckController.check(empref:String, nino:String, atDate:Option[LocalDate])
