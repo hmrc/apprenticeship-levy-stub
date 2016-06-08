@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.apprenticeshiplevy.controllers
+package uk.gov.hmrc.apprenticeshiplevy.data
 
-import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{FlatSpec, Matchers}
-import play.api.test.FakeRequest
+import org.joda.time.LocalDate
 
-class LevyDeclarationControllerTest extends FlatSpec with Matchers with ScalaFutures {
-
-  "declarations" should "return 200" in {
-    LevyDeclarationController.declarations("123/AB12345", None)(FakeRequest()).futureValue.header.status shouldBe 200
-  }
-
+object FractionData {
+  val data =
+    Map("123/AB12345" -> List(
+      EnglishFraction(BigDecimal(0.79), new LocalDate(2016, 2, 5)),
+      EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5)),
+      EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5)),
+      EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5))
+    ))
 }

@@ -42,3 +42,9 @@ case class LevyDeclarations(empref: String, declarations: Seq[LevyDeclaration])
 object LevyDeclarations {
   implicit val formats = Json.format[LevyDeclarations]
 }
+
+case class Fractions(empref: String, englishFractions: List[EnglishFraction])
+
+object Fractions {
+  implicit val formats = Json.format[Fractions]
+}
