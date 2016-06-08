@@ -22,10 +22,10 @@ object LevyData {
   val declarations =
     List(
       LevyDeclarations("123/AB12345", List(
-        LevyDeclaration(PayrollMonth(2016, 2), BigDecimal(-200), "amended", "2016-03-15", EnglishFraction(BigDecimal(0.79), new LocalDate(2016, 2, 5))),
-        LevyDeclaration(PayrollMonth(2016, 2), BigDecimal(1000), "original", "2016-02-21", EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5))),
-        LevyDeclaration(PayrollMonth(2016, 1), BigDecimal(500), "original", "2016-01-21", EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5))),
-        LevyDeclaration(PayrollMonth(2015, 12), BigDecimal(600), "original", "2015-12-21", EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5)))
+        LevyDeclaration(PayrollMonth(2016, 2), BigDecimal(-200), "amended", "2016-03-15"),
+        LevyDeclaration(PayrollMonth(2016, 2), BigDecimal(1000), "original", "2016-02-21"),
+        LevyDeclaration(PayrollMonth(2016, 1), BigDecimal(500), "original", "2016-01-21"),
+        LevyDeclaration(PayrollMonth(2015, 12), BigDecimal(600), "original", "2015-12-21")
       ))
     )
 

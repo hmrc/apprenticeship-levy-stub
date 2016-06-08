@@ -22,8 +22,6 @@ object FractionData {
   val data =
     Map("123/AB12345" -> List(
       EnglishFraction(BigDecimal(0.79), new LocalDate(2016, 2, 5)),
-      EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5)),
-      EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5)),
-      EnglishFraction(BigDecimal(0.83), new LocalDate(2015, 4, 5))
+      EnglishFraction(BigDecimal(0.88), new LocalDate(2016, 1, 5))
     ))
 }

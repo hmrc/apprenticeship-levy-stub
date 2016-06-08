@@ -16,10 +16,9 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.controllers
 
-import uk.gov.hmrc.apprenticeshiplevy.data.{FractionData, LevyData}
 import play.api.libs.json.Json
-import play.api.mvc.{Action, Request}
-import uk.gov.hmrc.play.http.HeaderCarrier
+import play.api.mvc.Action
+import uk.gov.hmrc.apprenticeshiplevy.data.FractionData
 import uk.gov.hmrc.play.microservice.controller.BaseController
 
 object FractionController extends FractionController

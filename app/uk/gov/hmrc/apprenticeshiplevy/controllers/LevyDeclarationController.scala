@@ -16,10 +16,9 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.controllers
 
-import uk.gov.hmrc.apprenticeshiplevy.data.LevyData
 import play.api.libs.json.Json
-import play.api.mvc.{Action, Request}
-import uk.gov.hmrc.play.http.HeaderCarrier
+import play.api.mvc.Action
+import uk.gov.hmrc.apprenticeshiplevy.data.LevyData
 import uk.gov.hmrc.play.microservice.controller.BaseController
 
 object LevyDeclarationController extends LevyDeclarationController
@@ -27,7 +26,7 @@ object LevyDeclarationController extends LevyDeclarationController
 trait LevyDeclarationController extends BaseController {
   def declarations(empref: String, months: Option[Int]) = Action { implicit request =>
     LevyData.data.get(empref) match {
-      case Some(ds) => Ok(Json.toJson(ds))
+      case Some(ds) => Ok(Json.toJson(ds.declarations))
       case None => NotFound
     }
   }

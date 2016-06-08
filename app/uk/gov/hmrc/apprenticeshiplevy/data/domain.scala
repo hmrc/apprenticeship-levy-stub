@@ -31,7 +31,7 @@ object EnglishFraction {
   implicit val formats = Json.format[EnglishFraction]
 }
 
-case class LevyDeclaration(payrollMonth: PayrollMonth, amount: BigDecimal, submissionType: String, submissionDate: String, englishFraction: EnglishFraction)
+case class LevyDeclaration(payrollMonth: PayrollMonth, amount: BigDecimal, submissionType: String, submissionDate: String)
 
 object LevyDeclaration {
   implicit val formats = Json.format[LevyDeclaration]
