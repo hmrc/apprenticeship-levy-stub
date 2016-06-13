@@ -20,8 +20,18 @@ import org.joda.time.LocalDate
 
 object FractionData {
   val data =
-    Map("123/AB12345" -> List(
-      EnglishFraction(BigDecimal(0.79), new LocalDate(2016, 2, 5)),
-      EnglishFraction(BigDecimal(0.88), new LocalDate(2016, 1, 5))
-    ))
+    Map("123/AB12345" -> Fractions("123/AB12345", List(
+      FractionCalculation(new LocalDate(2016, 3, 15), List(
+        Fraction("England", 0.83),
+        Fraction("Scotland", 0.11),
+        Fraction("Wales", 0.06),
+        Fraction("Northern Ireland", 0)
+      )),
+      FractionCalculation(new LocalDate(2015, 11, 18), List(
+        Fraction("England", 0.78),
+        Fraction("Scotland", 0.16),
+        Fraction("Wales", 0.06),
+        Fraction("Northern Ireland", 0)
+      ))
+    )))
 }
