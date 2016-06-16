@@ -43,7 +43,7 @@ object LevyDeclaration {
   implicit val formats = Json.format[LevyDeclaration]
 }
 
-case class LevyDeclarations(empref: String, declarations: Seq[LevyDeclaration])
+case class LevyDeclarations(empref: String, schemeCessationDate: Option[LocalDate], declarations: Seq[LevyDeclaration])
 
 object LevyDeclarations {
   implicit val formats = Json.format[LevyDeclarations]

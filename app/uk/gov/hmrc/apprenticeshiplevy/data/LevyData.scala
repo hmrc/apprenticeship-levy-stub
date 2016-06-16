@@ -21,7 +21,7 @@ import org.joda.time.LocalDate
 object LevyData {
   val declarations =
     List(
-      LevyDeclarations("123/AB12345", List(
+      LevyDeclarations("123/AB12345", None, List(
         LevyDeclaration(PayrollMonth(2016, 2), BigDecimal(-200), "amended", "2016-03-15"),
         LevyDeclaration(PayrollMonth(2016, 2), BigDecimal(1000), "original", "2016-02-21"),
         LevyDeclaration(PayrollMonth(2016, 1), BigDecimal(500), "original", "2016-01-21"),

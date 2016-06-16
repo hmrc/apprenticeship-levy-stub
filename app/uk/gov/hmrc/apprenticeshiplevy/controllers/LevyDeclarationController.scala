@@ -26,7 +26,7 @@ object LevyDeclarationController extends LevyDeclarationController
 trait LevyDeclarationController extends BaseController {
   def declarations(empref: String, months: Option[Int]) = Action { implicit request =>
     LevyData.data.get(empref) match {
-      case Some(ds) => Ok(Json.toJson(ds.declarations))
+      case Some(ds) => Ok(Json.toJson(ds))
       case None => NotFound
     }
   }
