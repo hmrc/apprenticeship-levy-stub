@@ -17,18 +17,14 @@
 package uk.gov.hmrc.apprenticeshiplevy.controllers
 
 import play.api.libs.json.Json
-import play.api.mvc.Action
-import uk.gov.hmrc.apprenticeshiplevy.data.LevyData
-import uk.gov.hmrc.play.microservice.controller.BaseController
+import play.mvc.Http.Status._
 
-object LevyDeclarationController extends LevyDeclarationController
+case class ErrorResponse(httpStatusCode: Int, errorCode: String, message: String)
 
-trait LevyDeclarationController extends BaseController {
-  @deprecated("Use charges controller instead", "24/06/2016")
-  def declarations(empref: String, months: Option[Int]) = Action { implicit request =>
-    LevyData.data.get(empref) match {
-      case Some(ds) => Ok(Json.toJson(ds))
-      case None => NotFound
-    }
-  }
+object ErrorResponse {
+
+  val ErrorNotFound = ErrorResponse(NOT_FOUND, "NOT_FOUND", "Resource was not found")
+
+  implicit def fmt = Json.format[ErrorResponse]
+
 }

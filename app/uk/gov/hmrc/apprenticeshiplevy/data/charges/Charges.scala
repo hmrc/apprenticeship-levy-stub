@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.apprenticeshiplevy.controllers
+package uk.gov.hmrc.apprenticeshiplevy.data.charges
 
-import org.joda.time.LocalDate
-import play.api.libs.json.JsString
-import play.api.mvc.Action
-import uk.gov.hmrc.play.microservice.controller.BaseController
+import org.joda.time.LocalDateTime
 
-object EmploymentCheckController extends EmploymentCheckController
+case class Charges(chargeResponseType: String, responseTimestamp: LocalDateTime, requestTaxYear: String, requestEmpref: String, charges: Seq[Charge])
 
-trait EmploymentCheckController extends BaseController {
-  def check(empref: String, nino: String, atDate: Option[LocalDate]) = Action { implicit request =>
-    Ok(JsString("employed"))
-  }
-}
+case class Charge(chargeType: String, mainType: String, period: Seq[Period])
+
+case class Period(startDate: Option[String], endDate: Option[String], value: BigDecimal, outstanding: BigDecimal, cleared: BigDecimal)

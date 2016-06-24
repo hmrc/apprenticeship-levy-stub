@@ -14,15 +14,20 @@ trait MicroService {
 
   val appName: String
 
-  val defaultPort : Int
+  val defaultPort: Int
 
-  def appDependencies : Seq[ModuleID]
-  lazy val plugins : Seq[Plugins] = Seq(play.PlayScala)
-  lazy val playSettings : Seq[Setting[_]] = Seq(routesImport ++= Seq("uk.gov.hmrc.apprenticeshiplevy.controllers.QueryBinders._", "org.joda.time.LocalDate"))
+  def appDependencies: Seq[ModuleID]
+
+  lazy val plugins: Seq[Plugins] = Seq(play.PlayScala)
+  lazy val playSettings: Seq[Setting[_]] = Seq(
+    routesImport ++= Seq(
+      "uk.gov.hmrc.apprenticeshiplevy.controllers._",
+      "uk.gov.hmrc.apprenticeshiplevy.controllers.QueryBinders._",
+      "org.joda.time.LocalDate"))
 
   lazy val microservice = Project(appName, file("."))
-    .enablePlugins(Seq(play.PlayScala) ++ plugins : _*)
-    .settings(playSettings : _*)
+    .enablePlugins(Seq(play.PlayScala) ++ plugins: _*)
+    .settings(playSettings: _*)
     .settings(scalaSettings: _*)
     .settings(publishingSettings: _*)
     .settings(defaultSettings(): _*)
@@ -40,7 +45,7 @@ trait MicroService {
     .settings(inConfig(IntegrationTest)(Defaults.itSettings): _*)
     .settings(
       Keys.fork in IntegrationTest := false,
-      unmanagedSourceDirectories in IntegrationTest <<= (baseDirectory in IntegrationTest)(base => Seq(base / "it")),
+      unmanagedSourceDirectories in IntegrationTest <<= (baseDirectory in IntegrationTest) (base => Seq(base / "it")),
       addTestReportOption(IntegrationTest, "int-test-reports"),
       testGrouping in IntegrationTest := oneForkedJvmPerTest((definedTests in IntegrationTest).value),
       parallelExecution in IntegrationTest := false)

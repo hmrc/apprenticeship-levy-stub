@@ -28,6 +28,7 @@ private object AppDependencies {
   private val playJsonLoggerVersion = "2.1.1"
   private val playUrlBindersVersion = "1.0.0"
   private val playConfigVersion = "2.0.1"
+  private val playHmrcApiVersion = "0.5.0"
   private val domainVersion = "3.7.0"
   private val hmrcTestVersion = "1.6.0"
 
@@ -41,12 +42,14 @@ private object AppDependencies {
     "uk.gov.hmrc" %% "play-url-binders" % playUrlBindersVersion,
     "uk.gov.hmrc" %% "play-config" % playConfigVersion,
     "uk.gov.hmrc" %% "play-json-logger" % playJsonLoggerVersion,
+    "uk.gov.hmrc" %% "play-hmrc-api" % playHmrcApiVersion,
     "uk.gov.hmrc" %% "domain" % domainVersion
   )
 
   trait TestDependencies {
     lazy val scope: String = "test"
-    lazy val test: Seq[ModuleID] = ???
+
+    def test: Seq[ModuleID]
   }
 
   object Test {

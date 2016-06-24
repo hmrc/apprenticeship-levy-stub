@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.data
 
-import org.joda.time.LocalDate
-
 object LevyData {
   val declarations =
     List(
