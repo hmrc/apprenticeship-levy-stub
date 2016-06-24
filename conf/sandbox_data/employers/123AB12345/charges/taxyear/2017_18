@@ -1,6 +1,6 @@
 {
 	"charges": [{
-		"chargeType": "In Year RTI Charge-TAX",
+		"chargeType": "In Year RTI Charge-APPRENTICESHIP LEVY",
 		"mainType": "FPS",
 		"period": [{
 			"startDate": "2014-01-01",
@@ -66,7 +66,7 @@
 			"cleared": 11121.10
 		}]
 	}, {
-		"chargeType": "PAYE EYU - TAX",
+		"chargeType": "PAYE EYU - APPRENTICESHIP LEVY",
 		"mainType": "EYU",
 		"period": [{
 			"startDate": "2014-06-06",
@@ -126,7 +126,7 @@
 			"cleared": -123.05
 		}]
 	}, {
-		"chargeType": "RTI Spec Charge-TAX",
+		"chargeType": "RTI Spec Charge-APPRENTICESHIP LEVY",
 		"mainType": "Specifieds",
 		"period": [{
 			"startDate": "2014-12-12",
@@ -186,7 +186,7 @@
 			"cleared": -0.05
 		}]
 	}, {
-		"chargeType": "EOY Non RTI -TAX",
+		"chargeType": "EOY Non RTI -APPRENTICESHIP LEVY",
 		"mainType": "Manual Charges",
 		"period": [{
 			"startDate": "2015-12-24",
