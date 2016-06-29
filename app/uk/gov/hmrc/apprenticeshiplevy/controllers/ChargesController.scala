@@ -31,7 +31,7 @@ object ChargesController extends ChargesController
 
 trait ChargesController extends BaseController {
   val ldtWrites = new Writes[LocalDateTime] {
-    val fmt = DateTimeFormat.forPattern("dd-MM-YYYY'T'HH:mm:SS")
+    val fmt = DateTimeFormat.forPattern("dd-MM-YYYY'T'HH:mm:ss")
 
     override def writes(ldt: LocalDateTime): JsValue = JsString(fmt.print(ldt))
   }
