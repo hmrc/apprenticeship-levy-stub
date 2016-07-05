@@ -31,6 +31,7 @@ trait EpayeController extends BaseController {
   def designatoryDetails(empref: String) = Action { implicit request =>
     val details = DesignatoryDetails(Some(DesignatoryDetailsData(Some(HodName(Some("Foo Bar Ltd."), None)), None, None)), None)
 
-    Ok(Json.toJson(details))
+    if (empref == "123/AB12345") Ok(Json.toJson(details))
+    else NotFound
   }
 }
