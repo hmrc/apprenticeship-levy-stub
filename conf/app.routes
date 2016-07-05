@@ -6,3 +6,5 @@ GET        /empref/:empref/fractions                                          uk
 GET        /auth/authority                                                    uk.gov.hmrc.apprenticeshiplevy.controllers.AuthController.authority
 
 GET        /pay-as-you-earn/employers/:empref/charges/taxyear/:taxYear        uk.gov.hmrc.apprenticeshiplevy.controllers.ChargesController.charges(empref:String, taxYear:String)
+
+GET        /epaye/:empref/designatory-details                                 uk.gov.hmrc.apprenticeshiplevy.controllers.EpayeController.designatoryDetails(empref :String)
