@@ -23,7 +23,6 @@ import uk.gov.hmrc.play.microservice.controller.BaseController
 
 object EpayeController extends EpayeController
 
-
 trait EpayeController extends BaseController {
 
   import DesignatoryDetails._

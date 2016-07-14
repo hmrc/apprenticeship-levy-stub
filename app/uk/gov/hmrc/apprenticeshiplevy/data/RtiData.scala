@@ -16,12 +16,14 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.data
 
-import org.joda.time.LocalDate
+import org.joda.time.{DateTime, LocalDate}
 
 object RtiData {
 
   val data: Map[String, EmployerPaymentSummary] = Map(
     "123/AB12345" -> EmployerPaymentSummary(
+      0,
+      new DateTime(2016, 3, 7, 16, 5, 23),
       EmpRefs(officeNumber = "123", payeRef = "Ref/001<Q>", aoRef = "123PQ7654321X"),
       Some("yes"),
       Some(DateRange(from = new LocalDate(2016, 4, 6), to = new LocalDate(2017, 4, 5))),
@@ -39,6 +41,7 @@ object RtiData {
         nicCompensationOnShPP = Some(BigDecimal("13.12")),
         cisDeductionsSuffered = Some(BigDecimal("13.12"))
       )),
+      Some(ApprenticeshipLevy(600, 7, 15000)),
       Some(Account(
         accountHoldersName = "Mr. James T Bacon",
         accountNo = "12345678",

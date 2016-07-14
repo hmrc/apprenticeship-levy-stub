@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.data
 
+import com.github.nscala_time.time.Imports._
 import org.joda.time.LocalDate
 import play.api.libs.json.Json
 
@@ -80,6 +81,12 @@ case class RecoverableAmountsYTD(taxMonth: Option[Int] = None,
                                  nicCompensationOnShPP: Option[BigDecimal] = None,
                                  cisDeductionsSuffered: Option[BigDecimal] = None)
 
+case class ApprenticeshipLevy(levyDueYTD: BigDecimal, taxMonth: Int, annualAllce: BigDecimal)
+
+object ApprenticeshipLevy {
+  implicit val formats = Json.format[ApprenticeshipLevy]
+}
+
 object RecoverableAmountsYTD {
   implicit val formats = Json.format[RecoverableAmountsYTD]
 }
@@ -99,12 +106,15 @@ object FinalSubmission {
   implicit val formats = Json.format[FinalSubmission]
 }
 
-case class EmployerPaymentSummary(empRefs: EmpRefs,
+case class EmployerPaymentSummary(eventId: Long,
+                                  submissionTime: DateTime,
+                                  empRefs: EmpRefs,
                                   noPaymentForPeriod: Yes,
                                   noPaymentDates: Option[DateRange],
                                   periodOfInactivity: Option[DateRange],
                                   empAllceInd: YesNo,
                                   recoverableAmountsYTD: Option[RecoverableAmountsYTD],
+                                  apprenticeshipLevy: Option[ApprenticeshipLevy],
                                   account: Option[Account],
                                   relatedTaxYear: String,
                                   finalSubmission: Option[FinalSubmission])
