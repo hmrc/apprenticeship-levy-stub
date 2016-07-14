@@ -23,7 +23,7 @@ import uk.gov.hmrc.play.microservice.controller.BaseController
 
 trait RtiController extends BaseController {
 
-  def eps(empref: String) = Action { implicit request =>
+  def eps(empref: String, months: Option[Int]) = Action { implicit request =>
     RtiData.data.get(empref) match {
       case Some(eps) => Ok(Json.toJson(eps))
       case _ => NotFound
