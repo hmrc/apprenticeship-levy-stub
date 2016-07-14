@@ -16,9 +16,9 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.data
 
-import com.github.nscala_time.time.Imports._
-import org.joda.time.LocalDate
-import play.api.libs.json.Json
+import org.joda.time.format.{DateTimeFormatter, ISODateTimeFormat}
+import org.joda.time.{LocalDate, LocalDateTime}
+import play.api.libs.json.{JsString, JsValue, Json, Writes}
 
 case class PayrollMonth(year: Int, month: Int)
 
@@ -107,7 +107,7 @@ object FinalSubmission {
 }
 
 case class EmployerPaymentSummary(eventId: Long,
-                                  submissionTime: DateTime,
+                                  submissionTime: LocalDateTime,
                                   empRefs: EmpRefs,
                                   noPaymentForPeriod: Yes,
                                   noPaymentDates: Option[DateRange],
@@ -120,5 +120,10 @@ case class EmployerPaymentSummary(eventId: Long,
                                   finalSubmission: Option[FinalSubmission])
 
 object EmployerPaymentSummary {
-  implicit val formats = Json.format[EmployerPaymentSummary]
+
+  implicit val ldWrites = new Writes[LocalDateTime] {
+    override def writes(o: LocalDateTime): JsValue = JsString(o.toString( ISODateTimeFormat.dateTime()))
+  }
+
+  implicit val formats = Json.writes[EmployerPaymentSummary]
 }

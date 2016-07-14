@@ -16,46 +16,94 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.data
 
-import org.joda.time.{DateTime, LocalDate}
+import org.joda.time.{DateTime, LocalDate, LocalDateTime}
 
 object RtiData {
+  private val account = Account(
+    accountHoldersName = "Mr. James T Bacon",
+    accountNo = "12345678",
+    sortCode = "123456",
+    buildingSocRef = Some("SMITH-(123)")
+  )
 
+  private val refs = EmpRefs(officeNumber = "123", payeRef = "123/AB12345", aoRef = "123PQ7654321X")
+  private val finalSubmission = FinalSubmission(
+    becauseSchemeCeased = Some("yes"),
+    dateSchemeCeased = Some(new LocalDate("2016-09-05")),
+    forYear = Some("yes")
+  )
+  val record1 = EmployerPaymentSummary(
+    12345678,
+    new LocalDateTime("2016-07-15T16:05:23"),
+    refs,
+    None, None, None, None, None,
+    Some(ApprenticeshipLevy(600, 11, 15000)),
+    Some(account),
+    "15-16",
+    None)
 
-  val epsRecord = EmployerPaymentSummary(
-    0,
-    new DateTime(2016, 4, 7, 16, 5, 23),
-    EmpRefs(officeNumber = "123", payeRef = "Ref/001<Q>", aoRef = "123PQ7654321X"),
-    Some("yes"),
-    Some(DateRange(from = new LocalDate(2016, 4, 6), to = new LocalDate(2017, 4, 5))),
-    Some(DateRange(from = new LocalDate(2015, 4, 6), to = new LocalDate(2015, 5, 5))),
-    Some("yes"),
-    Some(RecoverableAmountsYTD(
-      taxMonth = Some(7),
-      smpRecovered = Some(BigDecimal("13.12")),
-      sppRecovered = Some(BigDecimal("13.12")),
-      sapRecovered = Some(BigDecimal("13.12")),
-      shppRecovered = Some(BigDecimal("13.12")),
-      nicCompensationOnSMP = Some(BigDecimal("13.12")),
-      nicCompensationOnSPP = Some(BigDecimal("13.12")),
-      nicCompensationOnSAP = Some(BigDecimal("13.12")),
-      nicCompensationOnShPP = Some(BigDecimal("13.12")),
-      cisDeductionsSuffered = Some(BigDecimal("13.12"))
-    )),
-    Some(ApprenticeshipLevy(600, 7, 15000)),
-    Some(Account(
-      accountHoldersName = "Mr. James T Bacon",
-      accountNo = "12345678",
-      sortCode = "123456",
-      buildingSocRef = Some("SMITH-(123)")
-    )),
+  val record2 = EmployerPaymentSummary(
+    12345679,
+    new LocalDateTime("2015-04-07T16:05:23"),
+    refs,
+    Some("yes"), Some(DateRange(new LocalDate("2015-03-06"), new LocalDate("2015-04-05"))), None, None, None,
+    None,
+    Some(account),
+    "15-16",
+    None
+  )
+
+  val record3 = EmployerPaymentSummary(
+    12345680,
+    new LocalDateTime("2016-05-07T16:05:23"),
+    refs,
+    None, None, None, None, None,
+    Some(ApprenticeshipLevy(500, 1, 15000)),
+    Some(account),
     "16-17",
-    Some(FinalSubmission(
-      becauseSchemeCeased = Some("yes"),
-      dateSchemeCeased = Some(new LocalDate(2017, 1, 1)),
-      forYear = Some("yes")
-    )))
+    None)
+
+  val record4 = EmployerPaymentSummary(
+    12345681,
+    new LocalDateTime("2016-06-07T16:05:23"),
+    refs,
+    None, None, None, None, None,
+    Some(ApprenticeshipLevy(1000, 2, 15000)),
+    Some(account),
+    "16-17",
+    None)
+
+  val record5 = EmployerPaymentSummary(
+    12345682,
+    new LocalDateTime("2016-06-15T16:20:23"),
+    refs,
+    None, None, None, None, None,
+    Some(ApprenticeshipLevy(200, 2, 15000)),
+    Some(account),
+    "16-17",
+    None)
+
+  val record6 = EmployerPaymentSummary(
+    12345683,
+    new LocalDateTime("2016-07-15T16:05:23"),
+    refs,
+    None, None, Some(DateRange(new LocalDate("2016-06-06"), new LocalDate("2016-09-05"))), None, None,
+    None,
+    Some(account),
+    "16-17",
+    None)
+
+  val record7 = EmployerPaymentSummary(
+    12345684,
+    new LocalDateTime("2016-10-15T16:05:23"),
+    refs,
+    None, None, None, None, None,
+    None,
+    Some(account),
+    "16-17",
+    Some(finalSubmission))
 
   val data: Map[String, Seq[EmployerPaymentSummary]] = Map(
-    "123/AB12345" -> Seq(epsRecord, epsRecord.copy(submissionTime = new DateTime(2016, 5, 7, 16, 5, 23)))
+    "123/AB12345" -> Seq(record7, record6, record5, record4, record3, record2, record1)
   )
 }
