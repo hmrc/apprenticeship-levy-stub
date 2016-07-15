@@ -1,0 +1,62 @@
+{
+  "charges": [
+    {
+      "chargeType": "In Year RTI Charge-NIC1 - GB",
+      "mainType": "FPS",
+      "periods": [
+        {
+          "startDate": "2014-11-06",
+          "endDate": "2014-12-05",
+          "value": 1231.00,
+          "outstanding": 0,
+          "cleared": 1231.00
+        },
+        {
+          "startDate": "2015-01-06",
+          "endDate": "2015-02-05",
+          "value": 1231.00,
+          "outstanding": 1.00,
+          "cleared": 1230.00
+        },
+        {
+          "startDate": "2015-01-06",
+          "endDate": "2015-02-05",
+          "value": 1231.00,
+          "outstanding": 1231.00,
+          "cleared": 0
+        }
+      ]
+    },
+    {
+      "chargeType": "In Year RTI Charge-SL",
+      "mainType": "FPS",
+      "period": [
+        {
+          "value": 1231.00,
+          "outstanding": 0,
+          "cleared": 1231.00
+        }
+      ]
+    },
+    {
+      "chargeType": "In Year RTI Charge-TAX",
+      "mainType": "FPS",
+      "period": [
+        {
+          "startDate": "2014-11-06",
+          "endDate": "2014-12-05",
+          "value": 1231.00,
+          "outstanding": 0.00,
+          "cleared": 1231.00
+        },
+        {
+          "startDate": "2015-01-06",
+          "endDate": "2015-02-05",
+          "value": 1231.00,
+          "outstanding": 0,
+          "cleared": 1231.00
+        }
+      ]
+    }
+  ]
+}

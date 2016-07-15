@@ -1,0 +1,4 @@
+{
+	"code": "ACCEPT_HEADER_INVALID",
+	"message": "The accept header is missing or invalid"
+}

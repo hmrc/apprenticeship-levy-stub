@@ -1,0 +1,53 @@
+@@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<hd:GovTalkMessage xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.govtalk.gov.uk/CM/envelope envelope-v2-0-HMRC.xsd http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/16-17/1 EmployerPaymentSummary-2017-v1-0.xsd' xmlns:eps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/16-17/1' xmlns:hd='http://www.govtalk.gov.uk/CM/envelope'>
++<hd:GovTalkMessage xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.govtalk.gov.uk/CM/envelope envelope-v2-0-HMRC.xsd http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/17-18/1 EmployerPaymentSummary-2018-v0-1.xsd' xmlns:eps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/17-18/1' xmlns:hd='http://www.govtalk.gov.uk/CM/envelope'>
+   <hd:EnvelopeVersion>2.0</hd:EnvelopeVersion>
+   <hd:Header>
+     <hd:MessageDetails>
+       <hd:Class>HMRC-SAMPLE-CLASS</hd:Class>
+       <hd:Qualifier>request</hd:Qualifier>
+@@
+           <eps:PayeRef>Ref/001&lt;Q&gt;</eps:PayeRef>
+           <eps:AORef>123PQ7654321X</eps:AORef>
+         </eps:EmpRefs>
+         <eps:NoPaymentForPeriod>yes</eps:NoPaymentForPeriod>
+         <eps:NoPaymentDates>
+-          <eps:From>2016-04-06</eps:From>
+-          <eps:To>2017-04-05</eps:To>
++          <eps:From>2017-04-06</eps:From>
++          <eps:To>2018-04-05</eps:To>
+         </eps:NoPaymentDates>
+         <eps:PeriodOfInactivity>
+           <eps:From>2015-04-06</eps:From>
+           <eps:To>2015-05-05</eps:To>
+         </eps:PeriodOfInactivity>
+@@
+           <eps:NICCompensationOnSPP>13.12</eps:NICCompensationOnSPP>
+           <eps:NICCompensationOnSAP>13.12</eps:NICCompensationOnSAP>
+           <eps:NICCompensationOnShPP>13.12</eps:NICCompensationOnShPP>
+           <eps:CISDeductionsSuffered>13.12</eps:CISDeductionsSuffered>
+         </eps:RecoverableAmountsYTD>
++        <eps:ApprenticeshipLevy>
++          <eps:LevyDueYTD>12.00</eps:LevyDueYTD>
++          <eps:TaxMonth>12</eps:TaxMonth>
++          <eps:AnnualAllce>13.12</eps:AnnualAllce>
++        </eps:ApprenticeshipLevy>
+         <eps:Account>
+           <eps:AccountHoldersName>Mr. James T Bacon</eps:AccountHoldersName>
+           <eps:AccountNo>12345678</eps:AccountNo>
+           <eps:SortCode>123456</eps:SortCode>
+           <eps:BuildingSocRef>SMITH-(123)</eps:BuildingSocRef>
+         </eps:Account>
+-        <eps:RelatedTaxYear>16-17</eps:RelatedTaxYear>
++        <eps:RelatedTaxYear>17-18</eps:RelatedTaxYear>
+         <eps:FinalSubmission>
+           <eps:BecauseSchemeCeased>yes</eps:BecauseSchemeCeased>
+-          <eps:DateSchemeCeased>2017-01-01</eps:DateSchemeCeased>
++          <eps:DateSchemeCeased>2018-01-01</eps:DateSchemeCeased>
+           <eps:ForYear>yes</eps:ForYear>
+         </eps:FinalSubmission>
+       </eps:EmployerPaymentSummary>
+     </eps:IRenvelope>
+   </hd:Body>

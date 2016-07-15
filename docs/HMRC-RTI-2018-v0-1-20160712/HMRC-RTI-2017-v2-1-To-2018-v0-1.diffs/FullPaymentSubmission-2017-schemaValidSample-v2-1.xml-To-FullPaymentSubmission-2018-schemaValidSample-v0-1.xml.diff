@@ -1,0 +1,91 @@
+@@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<hd:GovTalkMessage xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.govtalk.gov.uk/CM/envelope envelope-v2-0-HMRC.xsd http://www.govtalk.gov.uk/taxation/PAYE/RTI/FullPaymentSubmission/16-17/2 FullPaymentSubmission-2017-v2-1.xsd' xmlns:fps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/FullPaymentSubmission/16-17/2' xmlns:hd='http://www.govtalk.gov.uk/CM/envelope'>
++<hd:GovTalkMessage xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.govtalk.gov.uk/CM/envelope envelope-v2-0-HMRC.xsd http://www.govtalk.gov.uk/taxation/PAYE/RTI/FullPaymentSubmission/17-18/1 FullPaymentSubmission-2018-v0-1.xsd' xmlns:fps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/FullPaymentSubmission/17-18/1' xmlns:hd='http://www.govtalk.gov.uk/CM/envelope'>
+   <hd:EnvelopeVersion>2.0</hd:EnvelopeVersion>
+   <hd:Header>
+     <hd:MessageDetails>
+       <hd:Class>HMRC-SAMPLE-CLASS</hd:Class>
+       <hd:Qualifier>request</hd:Qualifier>
+@@
+           <fps:OfficeNo>123</fps:OfficeNo>
+           <fps:PayeRef>Ref/001&lt;Q&gt;</fps:PayeRef>
+           <fps:AORef>123PQ7654321X</fps:AORef>
+           <fps:SAUTR>1234567890</fps:SAUTR>
+         </fps:EmpRefs>
+-        <fps:RelatedTaxYear>16-17</fps:RelatedTaxYear>
++        <fps:RelatedTaxYear>17-18</fps:RelatedTaxYear>
+         <fps:Employee>
+           <fps:EmployeeDetails>
+             <fps:NINO>JS123456B</fps:NINO>
+             <fps:Name>
+               <fps:Ttl>Dr</fps:Ttl>
+@@
+               <fps:PayrollIdChangedIndicator>yes</fps:PayrollIdChangedIndicator>
+               <fps:OldPayrollId>PYRL/001.THX-1138</fps:OldPayrollId>
+             </fps:PayIdChgd>
+             <fps:PaymentToANonIndividual>yes</fps:PaymentToANonIndividual>
+             <fps:IrrEmp>yes</fps:IrrEmp>
+-            <fps:LeavingDate>2000-12-31</fps:LeavingDate>
++            <fps:LeavingDate>2016-04-05</fps:LeavingDate>
+             <fps:FiguresToDate>
+               <fps:TaxablePay>13.12</fps:TaxablePay>
+               <fps:TotalTax>13.12</fps:TotalTax>
+               <fps:StudentLoansTD>12.00</fps:StudentLoansTD>
+               <fps:BenefitsTaxedViaPayrollYTD>13.12</fps:BenefitsTaxedViaPayrollYTD>
+@@
+               <fps:EmpeePenContribnsNotPaidYTD>13.12</fps:EmpeePenContribnsNotPaidYTD>
+             </fps:FiguresToDate>
+             <fps:Payment>
+               <fps:BacsHashCode>95c4c0abf2a45a0a12aa6d9e65e8a2a658109689bf1aac80f3858d1387415641</fps:BacsHashCode>
+               <fps:PayFreq>W1</fps:PayFreq>
+-              <fps:PmtDate>2016-04-06</fps:PmtDate>
++              <fps:PmtDate>2018-04-05</fps:PmtDate>
+               <fps:LateReason>A</fps:LateReason>
+               <fps:WeekNo>42</fps:WeekNo>
+               <fps:PeriodsCovered>12</fps:PeriodsCovered>
+               <fps:AggregatedEarnings>yes</fps:AggregatedEarnings>
+               <fps:PmtAfterLeaving>yes</fps:PmtAfterLeaving>
+@@
+               <fps:TaxablePay>13.12</fps:TaxablePay>
+               <fps:NonTaxOrNICPmt>13.12</fps:NonTaxOrNICPmt>
+               <fps:DednsFromNetPay>13.12</fps:DednsFromNetPay>
+               <fps:PayAfterStatDedns>13.12</fps:PayAfterStatDedns>
+               <fps:BenefitsTaxedViaPayroll>13.12</fps:BenefitsTaxedViaPayroll>
++              <fps:Benefits>
++                <fps:Car>
++                  <fps:Make>Audi A3</fps:Make>
++                  <fps:CO2>X</fps:CO2>
++                  <fps:Fuel>D</fps:Fuel>
++                  <fps:ID>BD51 SMR</fps:ID>
++                  <fps:Amendment>yes</fps:Amendment>
++                  <fps:Price>1312.00</fps:Price>
++                  <fps:AvailFrom>2018-04-05</fps:AvailFrom>
++                  <fps:CashEquiv>13.12</fps:CashEquiv>
++                  <fps:AvailTo>2018-04-05</fps:AvailTo>
++                  <fps:FreeFuel>
++                    <fps:Provided>2018-04-05</fps:Provided>
++                    <fps:CashEquiv>13.12</fps:CashEquiv>
++                    <fps:Withdrawn>2018-04-05</fps:Withdrawn>
++                  </fps:FreeFuel>
++                </fps:Car>
++              </fps:Benefits>
+               <fps:EmpeePenContribnsPaid>13.12</fps:EmpeePenContribnsPaid>
+               <fps:ItemsSubjectToClass1NIC>13.12</fps:ItemsSubjectToClass1NIC>
+               <fps:EmpeePenContribnsNotPaid>13.12</fps:EmpeePenContribnsNotPaid>
+               <fps:StudentLoanRecovered>12.00</fps:StudentLoanRecovered>
+               <fps:TaxDeductedOrRefunded>13.12</fps:TaxDeductedOrRefunded>
+@@
+             </fps:NIlettersAndValues>
+           </fps:Employment>
+         </fps:Employee>
+         <fps:FinalSubmission>
+           <fps:BecauseSchemeCeased>yes</fps:BecauseSchemeCeased>
+-          <fps:DateSchemeCeased>2017-01-01</fps:DateSchemeCeased>
++          <fps:DateSchemeCeased>2018-01-01</fps:DateSchemeCeased>
+           <fps:ForYear>yes</fps:ForYear>
+         </fps:FinalSubmission>
+       </fps:FullPaymentSubmission>
+     </fps:IRenvelope>
+   </hd:Body>

@@ -1,0 +1,337 @@
+{
+	"charges": [{
+		"chargeType": "In Year RTI Charge-TAX",
+		"mainType": "FPS",
+		"periods": [{
+			"startDate": "2014-01-01",
+			"endDate": "2014-04-30",
+			"value": 9876.45,
+			"outstanding": -99.96,
+			"cleared": 123.10
+		}, {
+			"value": 1000.10,
+			"outstanding": 106.15,
+			"cleared": -0.10
+		}, {
+			"startDate": "2014-03-01",
+			"endDate": "2014-12-31",
+			"value": -123.45,
+			"outstanding": 99999999.52,
+			"cleared": 0.00
+		}]
+	}, {
+		"chargeType": "In Year RTI Charge-NIC1 - GB",
+		"mainType": "FPS",
+		"periods": [{
+			"startDate": "2014-01-01",
+			"endDate": "2014-02-01",
+			"value": 2122.23,
+			"outstanding": -323232.96,
+			"cleared": -222.10
+		}, {
+			"startDate": "2014-02-02",
+			"endDate": "2014-03-02",
+			"value": -98.45,
+			"outstanding": -100.10,
+			"cleared": -11.41
+		}]
+	}, {
+		"chargeType": "In Year RTI ChargeE'yerNIC1-GB",
+		"mainType": "FPS",
+		"periods": [{
+			"startDate": "2014-03-03",
+			"endDate": "2014-04-03",
+			"value": -10.10,
+			"outstanding": -100.10,
+			"cleared": -1000.10
+		}]
+	}, {
+		"chargeType": "In Year RTI ChargeE'yeeNIC1-GB",
+		"mainType": "FPS",
+		"periods": [{
+			"startDate": "2014-04-04",
+			"endDate": "2014-05-04",
+			"value": 3231233.45,
+			"outstanding": 93211321.23,
+			"cleared": 0.01
+		}]
+	}, {
+		"chargeType": "In Year RTI Charge-SL",
+		"mainType": "FPS",
+		"periods": [{
+			"startDate": "2014-05-05",
+			"endDate": "2014-06-05",
+			"value": 2212.10,
+			"outstanding": 212343.10,
+			"cleared": 11121.10
+		}]
+	}, {
+		"chargeType": "PAYE EYU - TAX",
+		"mainType": "EYU",
+		"periods": [{
+			"startDate": "2014-06-06",
+			"endDate": "2014-07-06",
+			"value": -21212.11,
+			"outstanding": -9221123.22,
+			"cleared": -1111.11
+		}]
+	}, {
+		"chargeType": "PAYE EYU - E'yerNIC1-GB",
+		"mainType": "EYU",
+		"periods": [{
+			"startDate": "2014-07-07",
+			"endDate": "2014-08-07",
+			"value": 0.00,
+			"outstanding": 0.00,
+			"cleared": 0.00
+		}]
+	}, {
+		"chargeType": "PAYE EYU - E'yeeNIC1-GB",
+		"mainType": "EYU",
+		"periods": [{
+			"startDate": "2014-08-08",
+			"endDate": "2014-09-08",
+			"value": -123.45,
+			"outstanding": -67.89,
+			"cleared": -1011.12
+		}]
+	}, {
+		"chargeType": "PAYE EYU - SL",
+		"mainType": "EYU",
+		"periods": [{
+			"startDate": "2014-09-09",
+			"endDate": "2014-10-09",
+			"value": 0.00,
+			"outstanding": 10.10,
+			"cleared": 1000.10
+		}]
+	}, {
+		"chargeType": "In Year CISR Charge-IT",
+		"mainType": "CIS",
+		"periods": [{
+			"startDate": "2014-10-10",
+			"endDate": "2014-11-10",
+			"value": 11111.11,
+			"outstanding": -11111.11,
+			"cleared": 11111.11
+		}]
+	}, {
+		"chargeType": "Class 1A NIC- NIC1 GB",
+		"mainType": "Specifieds",
+		"periods": [{
+			"startDate": "2014-11-11",
+			"endDate": "2014-12-11",
+			"value": 2222.22,
+			"outstanding": -33.33,
+			"cleared": -123.05
+		}]
+	}, {
+		"chargeType": "RTI Spec Charge-TAX",
+		"mainType": "Specifieds",
+		"periods": [{
+			"startDate": "2014-12-12",
+			"endDate": "2014-01-13",
+			"value": -10000.10,
+			"outstanding": -1111.11,
+			"cleared": -11233.45
+		}]
+	}, {
+		"chargeType": "RTI Spec Charge-NIC1 - GB",
+		"mainType": "Specifieds",
+		"periods": [{
+			"startDate": "2014-02-14",
+			"endDate": "2014-03-15",
+			"value": 9876.55,
+			"outstanding": -55.55,
+			"cleared": 5555.55
+		}]
+	}, {
+		"chargeType": "RTI Spec Charge-E'yerNIC1-GB",
+		"mainType": "Specifieds",
+		"periods": [{
+			"startDate": "2014-04-16",
+			"endDate": "2014-05-17",
+			"value": 11111.11,
+			"outstanding": -91111.91,
+			"cleared": 0.00
+		}]
+	}, {
+		"chargeType": "RTI Spec Charge-E'yeNIC1-GB",
+		"mainType": "Specifieds",
+		"periods": [{
+			"startDate": "2014-06-18",
+			"endDate": "2014-07-19",
+			"value": 4.45,
+			"outstanding": 1.96,
+			"cleared": 12.01
+		}]
+	}, {
+		"chargeType": "RTI Spec Charge-SL",
+		"mainType": "Specifieds",
+		"periods": [{
+			"startDate": "2015-08-20",
+			"endDate": "2015-09-21",
+			"value": 0.45,
+			"outstanding": 0.96,
+			"cleared": 0.45
+		}]
+	}, {
+		"chargeType": "In Year Spec CISR Charge-IT",
+		"mainType": "Specifieds",
+		"periods": [{
+			"startDate": "2015-10-22",
+			"endDate": "2015-11-23",
+			"value": -0.10,
+			"outstanding": -0.12,
+			"cleared": -0.05
+		}]
+	}, {
+		"chargeType": "EOY Non RTI -TAX",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-12-24",
+			"endDate": "2015-1-25",
+			"value": 1111.11,
+			"outstanding": -111.00,
+			"cleared": 0.01
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-NIC1GB",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-02-26",
+			"endDate": "2015-03-27",
+			"value": 987621212.45,
+			"outstanding": -9912121212.01,
+			"cleared": 111.10
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-E'yerNIC1-GB",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-04-28",
+			"endDate": "2015-05-29",
+			"value": -96657.45,
+			"outstanding": -5467.01,
+			"cleared": -123.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-E'yeeNIC1-GB",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-06-30",
+			"endDate": "2015-07-31",
+			"value": -10000.10,
+			"outstanding": -10000.10,
+			"cleared": -1000.10
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-SL",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-03-03",
+			"endDate": "2015-04-04",
+			"value": 0.00,
+			"outstanding": 1.12,
+			"cleared": 0.01
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-CIS Ded Suffered",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-05-05",
+			"endDate": "2015-06-06",
+			"value": -9876.45,
+			"outstanding": -99.96,
+			"cleared": -123.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-NIC Holiday",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-07-07",
+			"endDate": "2015-08-08",
+			"value": -987612121.45,
+			"outstanding": -922121219.96,
+			"cleared": -121212121.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-SPP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-09-09",
+			"endDate": "2015-10-10",
+			"value": 22219876.45,
+			"outstanding": 22199.96,
+			"cleared": 112123.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-SAP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-11-11",
+			"endDate": "2015-12-12",
+			"value": 9112876.45,
+			"outstanding": 991212.96,
+			"cleared": 12111213.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-ShPP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"value": 982276.45,
+			"outstanding": 922229.96,
+			"cleared": 1222223.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-SSP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"value": 0.00,
+			"outstanding": 0.00,
+			"cleared": 0.00
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-SMP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"value": 0.00,
+			"outstanding": 1922.96,
+			"cleared": 1231.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-NIC Comp on SMP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"value": 9876.45,
+			"outstanding": 99.96,
+			"cleared": 123.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-NIC Comp on SPP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"startDate": "2015-02-03",
+			"endDate": "2015-02-04",
+			"value": 987622.45,
+			"outstanding": 0.01,
+			"cleared": 1211113.10
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-NIC Comp on SAP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"value": 9872226.45,
+			"outstanding": 1111.96,
+			"cleared": 123111122.45
+		}]
+	}, {
+		"chargeType": "EOY Non RTI-NIC Comp on ShPP",
+		"mainType": "Manual Charges",
+		"periods": [{
+			"value": 9876222.45,
+			"outstanding": 2229.96,
+			"cleared": 123222.45
+		}]
+	}]
+}

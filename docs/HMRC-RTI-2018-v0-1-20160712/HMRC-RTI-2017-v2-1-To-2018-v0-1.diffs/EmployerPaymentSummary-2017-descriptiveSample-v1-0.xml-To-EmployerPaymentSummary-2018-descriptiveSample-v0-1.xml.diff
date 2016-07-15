@@ -1,0 +1,27 @@
+@@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<hd:GovTalkMessage xmlns:dsig='http://www.w3.org/2000/09/xmldsig#' xmlns:eps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/16-17/1' xmlns:hd='http://www.govtalk.gov.uk/CM/envelope'>
++<hd:GovTalkMessage xmlns:dsig='http://www.w3.org/2000/09/xmldsig#' xmlns:eps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/17-18/1' xmlns:hd='http://www.govtalk.gov.uk/CM/envelope'>
+   <hd:EnvelopeVersion>EnvelopeVersion</hd:EnvelopeVersion>
+   <hd:Header>
+     <hd:MessageDetails>
+       <hd:Class>Identifier to allow gateway to determine target department, queue and validation needed.</hd:Class>
+       <hd:Qualifier>eGIF Class qualifier</hd:Qualifier>
+@@
+           <eps:NICCompensationOnSPP>Value of NIC compensation on Statutory Paternity Pay year to date</eps:NICCompensationOnSPP>
+           <eps:NICCompensationOnSAP>Value of NIC compensation on Statutory Adoption Pay year to date</eps:NICCompensationOnSAP>
+           <eps:NICCompensationOnShPP>Value of NIC compensation on Shared Parental Pay year to date</eps:NICCompensationOnShPP>
+           <eps:CISDeductionsSuffered>Value of CIS deductions suffered year to date</eps:CISDeductionsSuffered>
+         </eps:RecoverableAmountsYTD>
++<!--DESCRIPTION of following node: Apprenticeship Levy-->
++        <eps:ApprenticeshipLevy>
++          <eps:LevyDueYTD>Apprenticeship Levy due year to date</eps:LevyDueYTD>
++          <eps:TaxMonth>Tax month</eps:TaxMonth>
++          <eps:AnnualAllce>Annual Apprenticeship Levy allowance amount</eps:AnnualAllce>
++        </eps:ApprenticeshipLevy>
+ <!--DESCRIPTION of following node: Account information-->
+         <eps:Account>
+           <eps:AccountHoldersName>Name of account holder</eps:AccountHoldersName>
+           <eps:AccountNo>Account number</eps:AccountNo>
+           <eps:SortCode>Branch sort code</eps:SortCode>

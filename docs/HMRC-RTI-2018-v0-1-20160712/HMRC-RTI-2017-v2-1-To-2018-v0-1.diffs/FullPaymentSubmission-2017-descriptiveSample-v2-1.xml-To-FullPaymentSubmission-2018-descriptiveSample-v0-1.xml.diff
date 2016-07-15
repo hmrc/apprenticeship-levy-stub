@@ -1,0 +1,42 @@
+@@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<hd:GovTalkMessage xmlns:dsig='http://www.w3.org/2000/09/xmldsig#' xmlns:fps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/FullPaymentSubmission/16-17/2' xmlns:hd='http://www.govtalk.gov.uk/CM/envelope'>
++<hd:GovTalkMessage xmlns:dsig='http://www.w3.org/2000/09/xmldsig#' xmlns:fps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/FullPaymentSubmission/17-18/1' xmlns:hd='http://www.govtalk.gov.uk/CM/envelope'>
+   <hd:EnvelopeVersion>EnvelopeVersion</hd:EnvelopeVersion>
+   <hd:Header>
+     <hd:MessageDetails>
+       <hd:Class>Identifier to allow gateway to determine target department, queue and validation needed.</hd:Class>
+       <hd:Qualifier>eGIF Class qualifier</hd:Qualifier>
+@@
+               <fps:TaxablePay>Taxable pay in this pay period including payrolled benefits in kind</fps:TaxablePay>
+               <fps:NonTaxOrNICPmt>Value of payments not subject to tax or NICs</fps:NonTaxOrNICPmt>
+               <fps:DednsFromNetPay>Value of deductions from net pay in this pay period</fps:DednsFromNetPay>
+               <fps:PayAfterStatDedns>Pay after Statutory deductions</fps:PayAfterStatDedns>
+               <fps:BenefitsTaxedViaPayroll>Value of benefits taxed via the payroll in this pay period</fps:BenefitsTaxedViaPayroll>
++<!--DESCRIPTION of following node: Payrolled benefits-->
++              <fps:Benefits>
++<!--DESCRIPTION of following node: Car details-->
++                <fps:Car>
++                  <fps:Make>Make and model of car</fps:Make>
++                  <fps:CO2>CO2 emissions</fps:CO2>
++                  <fps:Fuel>Fuel type</fps:Fuel>
++                  <fps:ID>Car identifier</fps:ID>
++                  <fps:Amendment>Amendment indicator</fps:Amendment>
++                  <fps:Price>Calculated price</fps:Price>
++                  <fps:AvailFrom>Date car was available from</fps:AvailFrom>
++                  <fps:CashEquiv>Cash equivalent of car</fps:CashEquiv>
++                  <fps:AvailTo>Date car was available to</fps:AvailTo>
++<!--DESCRIPTION of following node: Free fuel-->
++                  <fps:FreeFuel>
++                    <fps:Provided>Date free fuel provided</fps:Provided>
++                    <fps:CashEquiv>Cash equivalent of fuel</fps:CashEquiv>
++                    <fps:Withdrawn>Date free fuel withdrawn</fps:Withdrawn>
++                  </fps:FreeFuel>
++                </fps:Car>
++              </fps:Benefits>
+               <fps:EmpeePenContribnsPaid>Value of employee pension contributions paid under 'net pay arrangements' in pay period</fps:EmpeePenContribnsPaid>
+               <fps:ItemsSubjectToClass1NIC>Items subject to Class 1 NIC but not taxed under PAYE regulations excluding pension contributions in pay period</fps:ItemsSubjectToClass1NIC>
+               <fps:EmpeePenContribnsNotPaid>Value of employee pension contributions that are not paid under 'net pay arrangements' in pay period</fps:EmpeePenContribnsNotPaid>
+               <fps:StudentLoanRecovered>Value of Student Loan repayment in this pay period</fps:StudentLoanRecovered>
+               <fps:TaxDeductedOrRefunded>Value of tax deducted or refunded from this payment</fps:TaxDeductedOrRefunded>

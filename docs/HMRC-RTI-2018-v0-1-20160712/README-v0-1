@@ -1,0 +1,19 @@
+Project:                PAYE Real-Time Information (RTI) 2018
+Distribution Version:   0.1
+Distribution Date:      2016-07-12
+JAR Version:            1.1
+
+N.B. Some schemas contained within this distribution are yeared and some are
+unyeared. This distribution contains the latest version of the schemas listed
+below as of the distribution date.
+
+Yeared schemas are:
+  FullPaymentSubmission
+  EmployerPaymentSummary
+
+Unyeared schemas are:
+  EmployerAlignmentSubmission
+  NINOverificationRequest
+
+Changes 2017 v2.1 -> 2018 v0.1 (2016-07-12):
+* Initial draft distribution based on JAR v1.1 [see JAR change log for additional details].

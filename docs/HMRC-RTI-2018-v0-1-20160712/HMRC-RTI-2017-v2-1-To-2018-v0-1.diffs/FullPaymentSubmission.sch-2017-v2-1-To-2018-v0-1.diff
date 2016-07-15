@@ -1,0 +1,87 @@
+@@
+ 
+ <sch:schema queryBinding='exslt' xmlns:sch='http://purl.oclc.org/dsdl/schematron'>
+   <sch:title>Schematron for FullPaymentSubmission</sch:title>
+   <sch:ns prefix='hd' uri='http://www.govtalk.gov.uk/CM/envelope'></sch:ns>
+   <sch:ns prefix='dsig' uri='http://www.w3.org/2000/09/xmldsig#'></sch:ns>
+-  <sch:ns prefix='fps' uri='http://www.govtalk.gov.uk/taxation/PAYE/RTI/FullPaymentSubmission/16-17/2'></sch:ns>
++  <sch:ns prefix='fps' uri='http://www.govtalk.gov.uk/taxation/PAYE/RTI/FullPaymentSubmission/17-18/1'></sch:ns>
+   <sch:pattern>
+     <sch:rule context='/hd:GovTalkMessage/hd:Body/fps:IRenvelope/fps:IRheader/fps:Keys/fps:Key'>
+       <sch:assert id='a_r1004' diagnostics='errorCode.r1004 transactional.r1004 transactional.en.r1004 ' test='count(../../../../../hd:GovTalkDetails/hd:Keys/hd:Key[@Type = current()/@Type and . = current()]) &gt; 0'>Keys in the IR header must also exist in the GovTalk header with the same value</sch:assert>
+     </sch:rule>
+   </sch:pattern>
+@@
+       <sch:assert id='a_UTR.0.0' diagnostics='errorCode.UTR.0.0 transactional.UTR.0.0 transactional.en.UTR.0.0 ' test='(((11 - (((6 * substring(., 2, 1)) + (7 * substring(., 3, 1)) + (8 * substring(., 4, 1)) + (9 * substring(., 5, 1)) + (10 * substring(., 6, 1)) + (5 * substring(., 7, 1)) + (4 * substring(., 8, 1)) + (3 * substring(., 9, 1)) + (2 * substring(., 10, 1))) mod 11)) &gt; 9) and (substring(., 1, 1) = (11 - (((6 * substring(., 2, 1)) + (7 * substring(., 3, 1)) + (8 * substring(., 4, 1)) + (9 * substring(., 5, 1)) + (10 * substring(., 6, 1)) + (5 * substring(., 7, 1)) + (4 * substring(., 8, 1)) + (3 * substring(., 9, 1)) + (2 * substring(., 10, 1))) mod 11)) - 9))                 or                 (substring(., 1, 1) = (11 - (((6 * substring(., 2, 1)) + (7 * substring(., 3, 1)) + (8 * substring(., 4, 1)) + (9 * substring(., 5, 1)) + (10 * substring(., 6, 1)) + (5 * substring(., 7, 1)) + (4 * substring(., 8, 1)) + (3 * substring(., 9, 1)) + (2 * substring(., 10, 1))) mod 11)))'>Must be valid against the UTR algorithm</sch:assert>
+     </sch:rule>
+   </sch:pattern>
+   <sch:pattern>
+     <sch:rule context='/hd:GovTalkMessage/hd:Body/fps:IRenvelope/fps:FullPaymentSubmission/fps:RelatedTaxYear'>
+-      <sch:assert id='a_RELATEDTAXYEAR.0' diagnostics='errorCode.RELATEDTAXYEAR.0 transactional.RELATEDTAXYEAR.0 transactional.en.RELATEDTAXYEAR.0 ' test='substring(string(2017 - 1), 3, 2) = substring(., 1, 2)           and             substring(2017, 3, 2) = substring(., 4, 2)'>Must be the appropriate tax year for the schema year. I.E. 16-17 for RTI-2017</sch:assert>
++      <sch:assert id='a_RELATEDTAXYEAR.0' diagnostics='errorCode.RELATEDTAXYEAR.0 transactional.RELATEDTAXYEAR.0 transactional.en.RELATEDTAXYEAR.0 ' test='substring(string(2018 - 1), 3, 2) = substring(., 1, 2)           and             substring(2018, 3, 2) = substring(., 4, 2)'>Must be the appropriate tax year for the schema year. I.E. 17-18 for RTI-2018</sch:assert>
+       <sch:assert id='a_RELATEDTAXYEAR.2' diagnostics='errorCode.RELATEDTAXYEAR.2 transactional.RELATEDTAXYEAR.2 transactional.en.RELATEDTAXYEAR.2 ' test="(round(date:seconds(normalize-space(concat(2000 + number(substring(.,1,2)), '-04-06'))) div 86400) &lt;= round(date:seconds(normalize-space(../../fps:IRheader/fps:PeriodEnd)) div 86400))         and           (round(date:seconds(normalize-space(../../fps:IRheader/fps:PeriodEnd)) div 86400) &lt;= round(date:seconds(normalize-space(concat(2001 + number(substring(.,1,2)), '-04-05'))) div 86400))">The PeriodEnd within the IRheader must be within the same tax year as [RELATEDTAXYEAR].</sch:assert>
+     </sch:rule>
+   </sch:pattern>
+   <sch:pattern>
+     <sch:rule context='/hd:GovTalkMessage/hd:Body/fps:IRenvelope/fps:FullPaymentSubmission/fps:Employee/fps:EmployeeDetails/fps:Address/fps:ForeignCountry'>
+@@
+       <sch:assert id='a_INDIVIDUALSECONDEDTOWORKINUK.0' diagnostics='errorCode.INDIVIDUALSECONDEDTOWORKINUK.0 transactional.INDIVIDUALSECONDEDTOWORKINUK.0 transactional.en.INDIVIDUALSECONDEDTOWORKINUK.0 ' test='fps:Stay183DaysOrMore or fps:StayLessThan183Days or fps:InOutUK or fps:EPM6'> If [INDIVIDUALSECONDEDTOWORKINUK] is present, at least one of [INTENDTOSTAYOVER183DAYS], [INTENDTOSTAYLESSTHAN183DAYS], [INTENDTOWORKBOTHINANDOUTOFUK] or [EPM6SCHEME] should be present </sch:assert>
+     </sch:rule>
+   </sch:pattern>
+   <sch:pattern>
+     <sch:rule context='/hd:GovTalkMessage/hd:Body/fps:IRenvelope/fps:FullPaymentSubmission/fps:Employee/fps:Employment/fps:LeavingDate'>
+-      <sch:assert id='a_LEAVINGDATE.0' diagnostics='errorCode.LEAVINGDATE.0 transactional.LEAVINGDATE.0 transactional.en.LEAVINGDATE.0 ' test="date:year(normalize-space(date:add(normalize-space((.)),normalize-space('-P3M5D')))) &gt;= date:year(normalize-space(date:add(normalize-space(date:date()),normalize-space('-P3M5D')))) - 6">[LEAVINGDATE] must be later than the start of the tax year (CY-6).</sch:assert>
+-      <sch:assert id='a_LEAVINGDATE.1' diagnostics='errorCode.LEAVINGDATE.1 transactional.LEAVINGDATE.1 transactional.en.LEAVINGDATE.1 ' test="(round(date:seconds(normalize-space(.)) div 86400) &lt;= round(date:seconds(normalize-space(date:add(normalize-space(date:date()),normalize-space('P30D')))) div 86400))">[LEAVINGDATE] must not be later than thirty days after today</sch:assert>
++      <sch:assert id='a_LEAVINGDATE.2' diagnostics='errorCode.LEAVINGDATE.2 transactional.LEAVINGDATE.2 transactional.en.LEAVINGDATE.2 ' test="(round(date:seconds(normalize-space(.)) div 86400) &lt;= round(date:seconds(normalize-space(date:add(normalize-space(date:date()),normalize-space('P30D')))) div 86400))">[LEAVINGDATE] must not be later than thirty days after today</sch:assert>
+     </sch:rule>
+   </sch:pattern>
+   <sch:pattern>
+     <sch:rule context='/hd:GovTalkMessage/hd:Body/fps:IRenvelope/fps:FullPaymentSubmission/fps:Employee/fps:Employment/fps:Payment/fps:PmtAfterLeaving'>
+       <sch:assert id='a_PAYMENTAFTERLEAVINGDATEINDICATOR.0' diagnostics='errorCode.PAYMENTAFTERLEAVINGDATEINDICATOR.0 transactional.PAYMENTAFTERLEAVINGDATEINDICATOR.0 transactional.en.PAYMENTAFTERLEAVINGDATEINDICATOR.0 ' test='../../fps:LeavingDate'>If [PAYMENTAFTERLEAVINGDATEINDICATOR] is present the following should be true: [LEAVINGDATE] is present</sch:assert>
+     </sch:rule>
+   </sch:pattern>
+   <sch:pattern>
++    <sch:rule context='/hd:GovTalkMessage/hd:Body/fps:IRenvelope/fps:FullPaymentSubmission/fps:Employee/fps:Employment/fps:Payment/fps:Benefits/fps:Car/fps:AvailTo'>
++      <sch:assert id='a_CARAVAILABLETO.0' diagnostics='errorCode.CARAVAILABLETO.0 transactional.CARAVAILABLETO.0 transactional.en.CARAVAILABLETO.0 ' test='(round(date:seconds(normalize-space(../fps:AvailFrom)) div 86400) &lt;= round(date:seconds(normalize-space((.))) div 86400))'>[CARAVAILABLETO] must not be before [CARAVAILABLEFROM]</sch:assert>
++    </sch:rule>
++  </sch:pattern>
++  <sch:pattern>
++    <sch:rule context='/hd:GovTalkMessage/hd:Body/fps:IRenvelope/fps:FullPaymentSubmission/fps:Employee/fps:Employment/fps:Payment/fps:Benefits/fps:Car/fps:FreeFuel/fps:Withdrawn'>
++      <sch:assert id='a_FREEFUELWITHDRAWN.0' diagnostics='errorCode.FREEFUELWITHDRAWN.0 transactional.FREEFUELWITHDRAWN.0 transactional.en.FREEFUELWITHDRAWN.0 ' test='(round(date:seconds(normalize-space(../fps:Provided)) div 86400) &lt;= round(date:seconds(normalize-space((.))) div 86400))'>[FREEFUELWITHDRAWN] must not be before [FREEFUELPROVIDED]</sch:assert>
++    </sch:rule>
++  </sch:pattern>
++  <sch:pattern>
+     <sch:rule context='/hd:GovTalkMessage/hd:Body/fps:IRenvelope/fps:FullPaymentSubmission/fps:Employee/fps:Employment/fps:Payment/fps:SMPYTD'>
+       <sch:assert id='a_STATUTORYMATERNITYPAY.0' diagnostics='errorCode.STATUTORYMATERNITYPAY.0 transactional.STATUTORYMATERNITYPAY.0 transactional.en.STATUTORYMATERNITYPAY.0 ' test="../../../fps:EmployeeDetails/fps:Gender = 'F'">If [STATUTORYMATERNITYPAY] is present the following should be true: [GENDER] equals F</sch:assert>
+     </sch:rule>
+   </sch:pattern>
+   <sch:pattern>
+@@
+     <sch:diagnostic id='transactional.INDIVIDUALSECONDEDTOWORKINUK.0'> If [INDIVIDUALSECONDEDTOWORKINUK] is present, at least one of [INTENDTOSTAYOVER183DAYS], [INTENDTOSTAYLESSTHAN183DAYS], [INTENDTOWORKBOTHINANDOUTOFUK] or [EPM6SCHEME] must be present. Please check.</sch:diagnostic>
+     <sch:diagnostic id='transactional.en.INDIVIDUALSECONDEDTOWORKINUK.0' xml:lang='en'> If [INDIVIDUALSECONDEDTOWORKINUK] is present, at least one of [INTENDTOSTAYOVER183DAYS], [INTENDTOSTAYLESSTHAN183DAYS], [INTENDTOWORKBOTHINANDOUTOFUK] or [EPM6SCHEME] must be present. Please check.</sch:diagnostic>
+     <sch:diagnostic id='errorCode.EEACOMMONWEALTHCITIZEN.0'>7884</sch:diagnostic>
+     <sch:diagnostic id='transactional.EEACOMMONWEALTHCITIZEN.0'>If [EEACITIZEN] is selected you must also select one of [INTENDTOSTAYLESSTHAN183DAYS],[INTENDTOSTAYOVER183DAYS] or [INTENDTOWORKBOTHINANDOUTOFUK]</sch:diagnostic>
+     <sch:diagnostic id='transactional.en.EEACOMMONWEALTHCITIZEN.0' xml:lang='en'>If [EEACITIZEN] is selected you must also select one of [INTENDTOSTAYLESSTHAN183DAYS],[INTENDTOSTAYOVER183DAYS] or [INTENDTOWORKBOTHINANDOUTOFUK]</sch:diagnostic>
+-    <sch:diagnostic id='errorCode.LEAVINGDATE.0'>7905</sch:diagnostic>
+-    <sch:diagnostic id='transactional.LEAVINGDATE.0'>The [LEAVINGDATE] must be within the last 6 previous tax years.</sch:diagnostic>
+-    <sch:diagnostic id='transactional.en.LEAVINGDATE.0' xml:lang='en'>The [LEAVINGDATE] must be within the last 6 previous tax years.</sch:diagnostic>
+-    <sch:diagnostic id='errorCode.LEAVINGDATE.1'>7831</sch:diagnostic>
+-    <sch:diagnostic id='transactional.LEAVINGDATE.1'>The [LEAVINGDATE] cannot be a future date more than thirty days from today. Please check</sch:diagnostic>
+-    <sch:diagnostic id='transactional.en.LEAVINGDATE.1' xml:lang='en'>The [LEAVINGDATE] cannot be a future date more than thirty days from today. Please check</sch:diagnostic>
++    <sch:diagnostic id='errorCode.LEAVINGDATE.2'>7831</sch:diagnostic>
++    <sch:diagnostic id='transactional.LEAVINGDATE.2'>The [LEAVINGDATE] cannot be a future date more than thirty days from today. Please check</sch:diagnostic>
++    <sch:diagnostic id='transactional.en.LEAVINGDATE.2' xml:lang='en'>The [LEAVINGDATE] cannot be a future date more than thirty days from today. Please check</sch:diagnostic>
+     <sch:diagnostic id='errorCode.PAYMENTAFTERLEAVINGDATEINDICATOR.0'>7847</sch:diagnostic>
+     <sch:diagnostic id='transactional.PAYMENTAFTERLEAVINGDATEINDICATOR.0'>The [PAYMENTAFTERLEAVINGDATEINDICATOR] is set. Please complete [LEAVINGDATE] </sch:diagnostic>
+     <sch:diagnostic id='transactional.en.PAYMENTAFTERLEAVINGDATEINDICATOR.0' xml:lang='en'>The [PAYMENTAFTERLEAVINGDATEINDICATOR] is set. Please complete [LEAVINGDATE] </sch:diagnostic>
++    <sch:diagnostic id='errorCode.CARAVAILABLETO.0'>5000</sch:diagnostic>
++    <sch:diagnostic id='transactional.CARAVAILABLETO.0'>[CARAVAILABLETO] must not be before [CARAVAILABLEFROM]. Please check</sch:diagnostic>
++    <sch:diagnostic id='transactional.en.CARAVAILABLETO.0' xml:lang='en'>[CARAVAILABLETO] must not be before [CARAVAILABLEFROM]. Please check</sch:diagnostic>
++    <sch:diagnostic id='errorCode.FREEFUELWITHDRAWN.0'>5000</sch:diagnostic>
++    <sch:diagnostic id='transactional.FREEFUELWITHDRAWN.0'>[FREEFUELWITHDRAWN] must not be before [FREEFUELPROVIDED]. Please check</sch:diagnostic>
++    <sch:diagnostic id='transactional.en.FREEFUELWITHDRAWN.0' xml:lang='en'>[FREEFUELWITHDRAWN] must not be before [FREEFUELPROVIDED]. Please check</sch:diagnostic>
+     <sch:diagnostic id='errorCode.STATUTORYMATERNITYPAY.0'>7848</sch:diagnostic>
+     <sch:diagnostic id='transactional.STATUTORYMATERNITYPAY.0'>There is an entry in [STATUTORYMATERNITYPAY]. This can only be present if [GENDER] equals F. Please check</sch:diagnostic>
+     <sch:diagnostic id='transactional.en.STATUTORYMATERNITYPAY.0' xml:lang='en'>There is an entry in [STATUTORYMATERNITYPAY]. This can only be present if [GENDER] equals F. Please check</sch:diagnostic>
+     <sch:diagnostic id='errorCode.TRIVIALCOMMUTATIONPAYMENT.0'>7885</sch:diagnostic>
+     <sch:diagnostic id='transactional.TRIVIALCOMMUTATIONPAYMENT.0'>[TRIVIALCOMMUTATIONPAYMENTTYPE] should be unique. Please check</sch:diagnostic>

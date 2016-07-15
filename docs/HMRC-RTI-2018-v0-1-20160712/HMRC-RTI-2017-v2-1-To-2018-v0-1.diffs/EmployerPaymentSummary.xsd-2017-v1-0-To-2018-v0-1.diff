@@ -1,0 +1,171 @@
+@@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<xsd:schema version='1.0' elementFormDefault='qualified' attributeFormDefault='unqualified' id='EmployerPaymentSummary' targetNamespace='http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/16-17/1' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:eps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/16-17/1'>
++<xsd:schema version='0.1' elementFormDefault='qualified' attributeFormDefault='unqualified' id='EmployerPaymentSummary' targetNamespace='http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/17-18/1' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:eps='http://www.govtalk.gov.uk/taxation/PAYE/RTI/EmployerPaymentSummary/17-18/1'>
+   <xsd:annotation>
+     <xsd:appinfo>
+       <gms:Metadata xmlns:gms='http://www.govtalk.gov.uk/CM/gms-xs'>
+         <gms:Audience>e-service developers</gms:Audience>
+         <gms:Contributor>CoreFiling Ltd</gms:Contributor>
+         <gms:Creator>HMRC</gms:Creator>
+         <gms:Date>
+-          <gms:Created>2015-06-19</gms:Created>
++          <gms:Created>2016-07-12</gms:Created>
+         </gms:Date>
+         <gms:Date>
+-          <gms:Modified>2015-11-02</gms:Modified>
++          <gms:Modified>2016-07-12</gms:Modified>
+         </gms:Date>
+         <gms:Language>[ISO 639-2/B] ENG</gms:Language>
+         <gms:Publisher>HMRC</gms:Publisher>
+         <gms:Relation>
+           <gms:ProvidesDefinitionOf>IRenvelope</gms:ProvidesDefinitionOf>
+@@
+         </gms:Relation>
+         <gms:Relation>
+           <gms:ProvidesDefinitionOf>EmployerPaymentSummary_EmailType</gms:ProvidesDefinitionOf>
+         </gms:Relation>
+         <gms:Relation>
++          <gms:ProvidesDefinitionOf>EmployerPaymentSummary_IRdecimalType</gms:ProvidesDefinitionOf>
++        </gms:Relation>
++        <gms:Relation>
+           <gms:ProvidesDefinitionOf>EmployerPaymentSummary_IRheaderStringType</gms:ProvidesDefinitionOf>
+         </gms:Relation>
+         <gms:Relation>
+           <gms:ProvidesDefinitionOf>EmployerPaymentSummary_IRmonetaryType</gms:ProvidesDefinitionOf>
+         </gms:Relation>
+         <gms:Relation>
++          <gms:ProvidesDefinitionOf>EmployerPaymentSummary_IRwholeUnitsMonetaryType</gms:ProvidesDefinitionOf>
++        </gms:Relation>
++        <gms:Relation>
+           <gms:ProvidesDefinitionOf>EmployerPaymentSummary_ISOcurrencyType</gms:ProvidesDefinitionOf>
+         </gms:Relation>
+         <gms:Relation>
+           <gms:ProvidesDefinitionOf>EmployerPaymentSummary_TelephoneStructure</gms:ProvidesDefinitionOf>
+         </gms:Relation>
+@@
+         </gms:Relation>
+         <gms:Relation>
+           <gms:ProvidesDefinitionOf>EmployerPaymentSummary_YesType</gms:ProvidesDefinitionOf>
+         </gms:Relation>
+         <gms:Rights>
+-          <gms:Copyright>(C) Crown Copyright 2013-2015</gms:Copyright>
++          <gms:Copyright>(C) Crown Copyright 2013-2016</gms:Copyright>
+         </gms:Rights>
+         <gms:Subject>
+           <gms:Category>Economics, Finance and Tax</gms:Category>
+         </gms:Subject>
+-        <gms:Title>PAYE RTI Employer Payment Summary 2016-17 schema</gms:Title>
++        <gms:Title>PAYE RTI Employer Payment Summary 2017-18 schema</gms:Title>
+         <gms:Type>message</gms:Type>
+       </gms:Metadata>
+     </xsd:appinfo>
+   </xsd:annotation>
+   <xsd:element name='IRenvelope'>
+@@
+               <xsd:sequence>
+                 <xsd:element name='From' minOccurs='1' maxOccurs='1'>
+                   <xsd:simpleType>
+                     <xsd:restriction base='eps:EmployerPaymentSummary_DateType'>
+                       <xsd:pattern value='\d{4}-\d{2}-06'></xsd:pattern>
+-                      <xsd:minInclusive value='2016-04-06'></xsd:minInclusive>
++                      <xsd:minInclusive value='2017-04-06'></xsd:minInclusive>
+                     </xsd:restriction>
+                   </xsd:simpleType>
+                 </xsd:element>
+                 <xsd:element name='To' minOccurs='1' maxOccurs='1'>
+                   <xsd:simpleType>
+                     <xsd:restriction base='eps:EmployerPaymentSummary_DateType'>
+                       <xsd:pattern value='\d{4}-\d{2}-05'></xsd:pattern>
+-                      <xsd:maxInclusive value='2017-04-05'></xsd:maxInclusive>
++                      <xsd:maxInclusive value='2018-04-05'></xsd:maxInclusive>
+                     </xsd:restriction>
+                   </xsd:simpleType>
+                 </xsd:element>
+               </xsd:sequence>
+             </xsd:complexType>
+@@
+                 </xsd:simpleType>
+               </xsd:element>
+             </xsd:sequence>
+           </xsd:complexType>
+         </xsd:element>
++        <xsd:element name='ApprenticeshipLevy' minOccurs='0' maxOccurs='1'>
++          <xsd:complexType>
++            <xsd:sequence>
++              <xsd:element name='LevyDueYTD' minOccurs='1' maxOccurs='1'>
++                <xsd:simpleType>
++                  <xsd:restriction base='eps:EmployerPaymentSummary_IRwholeUnitsMonetaryType'>
++                    <xsd:maxInclusive value='99999999.00'></xsd:maxInclusive>
++                    <xsd:minInclusive value='0.00'></xsd:minInclusive>
++                  </xsd:restriction>
++                </xsd:simpleType>
++              </xsd:element>
++              <xsd:element name='TaxMonth' minOccurs='1' maxOccurs='1'>
++                <xsd:simpleType>
++                  <xsd:restriction base='xsd:string'>
++                    <xsd:pattern value='[1-9]|1[0-2]'></xsd:pattern>
++                  </xsd:restriction>
++                </xsd:simpleType>
++              </xsd:element>
++              <xsd:element name='AnnualAllce' minOccurs='1' maxOccurs='1'>
++                <xsd:simpleType>
++                  <xsd:restriction base='eps:EmployerPaymentSummary_IRmonetaryType'>
++                    <xsd:maxInclusive value='15000.00'></xsd:maxInclusive>
++                    <xsd:minInclusive value='0.00'></xsd:minInclusive>
++                  </xsd:restriction>
++                </xsd:simpleType>
++              </xsd:element>
++            </xsd:sequence>
++          </xsd:complexType>
++        </xsd:element>
+         <xsd:element name='Account' minOccurs='0' maxOccurs='1'>
+           <xsd:complexType>
+             <xsd:sequence>
+               <xsd:element name='AccountHoldersName' minOccurs='1' maxOccurs='1'>
+                 <xsd:simpleType>
+@@
+             <xsd:sequence>
+               <xsd:element name='BecauseSchemeCeased' type='eps:EmployerPaymentSummary_YesType' minOccurs='0' maxOccurs='1'></xsd:element>
+               <xsd:element name='DateSchemeCeased' minOccurs='0' maxOccurs='1'>
+                 <xsd:simpleType>
+                   <xsd:restriction base='eps:EmployerPaymentSummary_DateType'>
+-                    <xsd:maxInclusive value='2017-04-05'></xsd:maxInclusive>
+-                    <xsd:minInclusive value='2016-04-06'></xsd:minInclusive>
++                    <xsd:maxInclusive value='2018-04-05'></xsd:maxInclusive>
++                    <xsd:minInclusive value='2017-04-06'></xsd:minInclusive>
+                   </xsd:restriction>
+                 </xsd:simpleType>
+               </xsd:element>
+               <xsd:element name='ForYear' type='eps:EmployerPaymentSummary_YesType' minOccurs='0' maxOccurs='1'></xsd:element>
+             </xsd:sequence>
+@@
+       <xsd:minLength value='3'></xsd:minLength>
+       <xsd:maxLength value='254'></xsd:maxLength>
+       <xsd:pattern value="[^@'&lt;&gt;&quot;]+@[^@'&lt;&gt;&quot;]+"></xsd:pattern>
+     </xsd:restriction>
+   </xsd:simpleType>
++  <xsd:simpleType name='EmployerPaymentSummary_IRdecimalType'>
++    <xsd:restriction base='xsd:decimal'>
++      <xsd:pattern value='-?(([1-9][0-9]*)|0)\.[0-9]{2}'></xsd:pattern>
++    </xsd:restriction>
++  </xsd:simpleType>
+   <xsd:simpleType name='EmployerPaymentSummary_IRheaderStringType'>
+     <xsd:restriction base='xsd:string'>
+       <xsd:pattern value="[A-Za-z0-9 &amp;'\(\)\*,\-\./]*"></xsd:pattern>
+     </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name='EmployerPaymentSummary_IRmonetaryType'>
+-    <xsd:restriction base='xsd:decimal'>
+-      <xsd:pattern value='-?(([1-9][0-9]*)|0)\.[0-9]{2}'></xsd:pattern>
++    <xsd:restriction base='eps:EmployerPaymentSummary_IRdecimalType'></xsd:restriction>
++  </xsd:simpleType>
++  <xsd:simpleType name='EmployerPaymentSummary_IRwholeUnitsMonetaryType'>
++    <xsd:restriction base='eps:EmployerPaymentSummary_IRdecimalType'>
++      <xsd:pattern value='.*\.00'></xsd:pattern>
+     </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name='EmployerPaymentSummary_ISOcurrencyType'>
+     <xsd:restriction base='xsd:string'>
+       <xsd:enumeration value='EUR'>
