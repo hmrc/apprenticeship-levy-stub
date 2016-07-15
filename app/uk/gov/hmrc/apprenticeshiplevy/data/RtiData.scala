@@ -16,9 +16,10 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.data
 
-import org.joda.time.{DateTime, LocalDate, LocalDateTime}
+import org.joda.time.{LocalDate, LocalDateTime}
 
 object RtiData {
+
   private val account = Account(
     accountHoldersName = "Mr. James T Bacon",
     accountNo = "12345678",
@@ -27,26 +28,22 @@ object RtiData {
   )
 
   private val refs = EmpRefs(officeNumber = "123", payeRef = "123/AB12345", aoRef = "123PQ7654321X")
-  private val finalSubmission = FinalSubmission(
-    becauseSchemeCeased = Some("yes"),
-    dateSchemeCeased = Some(new LocalDate("2016-09-05")),
-    forYear = Some("yes")
-  )
+
   val record1 = EmployerPaymentSummary(
     12345678,
-    new LocalDateTime("2016-07-15T16:05:23"),
+    new LocalDateTime("2016-07-14T16:05:23"),
     refs,
     None, None, None, None, None,
     Some(ApprenticeshipLevy(600, 11, 15000)),
     Some(account),
-    "15-16",
+    "16-17",
     None)
 
   val record2 = EmployerPaymentSummary(
     12345679,
     new LocalDateTime("2015-04-07T16:05:23"),
     refs,
-    Some("yes"), Some(DateRange(new LocalDate("2015-03-06"), new LocalDate("2015-04-05"))), None, None, None,
+    Some("yes"), Some(DateRange(new LocalDate("2016-03-06"), new LocalDate("2016-04-05"))), None, None, None,
     None,
     Some(account),
     "15-16",
@@ -101,7 +98,11 @@ object RtiData {
     None,
     Some(account),
     "16-17",
-    Some(finalSubmission))
+    Some(FinalSubmission(
+      becauseSchemeCeased = Some("yes"),
+      dateSchemeCeased = Some(new LocalDate("2016-09-05")),
+      forYear = Some("yes")
+    )))
 
   val data: Map[String, Seq[EmployerPaymentSummary]] = Map(
     "123/AB12345" -> Seq(record7, record6, record5, record4, record3, record2, record1)
