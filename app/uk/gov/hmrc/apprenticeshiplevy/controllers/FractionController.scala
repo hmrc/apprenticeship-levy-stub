@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.controllers
 
+import org.joda.time.LocalDate
 import play.api.libs.json.Json
 import play.api.mvc.Action
 import uk.gov.hmrc.apprenticeshiplevy.data.FractionData
@@ -29,5 +30,9 @@ trait FractionController extends BaseController {
       case Some(ds) => Ok(Json.toJson(ds))
       case None => NotFound
     }
+  }
+
+  def fractionCalculationDate = Action {
+    Ok(Json.toJson(new LocalDate))
   }
 }

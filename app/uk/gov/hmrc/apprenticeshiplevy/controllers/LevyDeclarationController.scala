@@ -24,7 +24,6 @@ import uk.gov.hmrc.play.microservice.controller.BaseController
 object LevyDeclarationController extends LevyDeclarationController
 
 trait LevyDeclarationController extends BaseController {
-  @deprecated("Use charges controller instead", "24/06/2016")
   def declarations(empref: String, months: Option[Int]) = Action { implicit request =>
     LevyData.data.get(empref) match {
       case Some(ds) => Ok(Json.toJson(ds))
