@@ -20,10 +20,10 @@ import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{FlatSpec, Matchers}
 import play.api.test.FakeRequest
 
-class LevyDeclarationControllerSpec extends FlatSpec with Matchers with ScalaFutures {
+class RtiControllerSpec extends FlatSpec with Matchers with ScalaFutures {
 
   "declarations" should "return 200" in {
-    LevyDeclarationController.declarations("123/AB12345", None)(FakeRequest()).futureValue.header.status shouldBe 200
+    RtiController.eps("123/AB12345", None, None)(FakeRequest()).futureValue.header.status shouldBe 200
   }
 
 }
