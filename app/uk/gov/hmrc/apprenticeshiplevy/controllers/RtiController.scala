@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.controllers
 
+import org.joda.time.LocalDate
 import play.api.libs.json.Json
 import play.api.mvc.Action
 import uk.gov.hmrc.apprenticeshiplevy.data.RtiData
@@ -23,7 +24,7 @@ import uk.gov.hmrc.play.microservice.controller.BaseController
 
 trait RtiController extends BaseController {
 
-  def eps(empref: String, months: Option[Int]) = Action { implicit request =>
+  def eps(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate]) = Action { implicit request =>
     RtiData.data.get(empref) match {
       case Some(eps) => Ok(Json.toJson(eps))
       case _ => NotFound

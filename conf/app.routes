@@ -10,4 +10,4 @@ GET        /pay-as-you-earn/employers/:empref/charges/taxyear/:taxYear        uk
 
 GET        /epaye/:empref/designatory-details                                 uk.gov.hmrc.apprenticeshiplevy.controllers.EpayeController.designatoryDetails(empref: String)
 
-GET        /epaye/:empref/eps                                                 uk.gov.hmrc.apprenticeshiplevy.controllers.RtiController.eps(empref: String, months: Option[Int])
+GET        /epaye/:empref/eps                                                 uk.gov.hmrc.apprenticeshiplevy.controllers.RtiController.eps(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate])
