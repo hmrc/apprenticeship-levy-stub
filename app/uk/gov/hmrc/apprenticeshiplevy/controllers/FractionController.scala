@@ -19,15 +19,25 @@ package uk.gov.hmrc.apprenticeshiplevy.controllers
 import org.joda.time.LocalDate
 import play.api.libs.json.Json
 import play.api.mvc.Action
-import uk.gov.hmrc.apprenticeshiplevy.data.FractionData
+import uk.gov.hmrc.apprenticeshiplevy.data.{FractionCalculation, FractionData, Fractions}
 import uk.gov.hmrc.play.microservice.controller.BaseController
 
 object FractionController extends FractionController
 
 trait FractionController extends BaseController {
-  def fractions(empref: String, months: Option[Int]) = Action { implicit request =>
+
+  implicit class DateFilterSyntax(fractions: Seq[FractionCalculation]) {
+    def filterDate(fromDate: Option[LocalDate], toDate: Option[LocalDate]): Seq[FractionCalculation] = {
+      val dateRange = DateRange(fromDate, toDate)
+      fractions.filter(f => dateRange.contains(f.calculatedAt))
+    }
+  }
+
+  def fractions(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate]) = Action { implicit request =>
     FractionData.data.get(empref) match {
-      case Some(ds) => Ok(Json.toJson(ds))
+      case Some(fractions) =>
+        val filtered = fractions.fractionCalculations.filterDate(fromDate, toDate).toList
+        Ok(Json.toJson(fractions.copy(fractionCalculations = filtered)))
       case None => NotFound
     }
   }
