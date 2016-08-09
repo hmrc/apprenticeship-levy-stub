@@ -24,16 +24,10 @@ import uk.gov.hmrc.play.microservice.controller.BaseController
 
 object FractionController extends FractionController
 
-trait FractionController extends BaseController {
-
-  implicit class DateFilterSyntax(fractions: Seq[FractionCalculation]) {
-    def filterDate(fromDate: Option[LocalDate], toDate: Option[LocalDate]): Seq[FractionCalculation] = {
-      val dateRange = DateRange(fromDate, toDate)
-      fractions.filter(f => dateRange.contains(f.calculatedAt))
-    }
-  }
-
+trait FractionController extends BaseController with DateFiltering {
   def fractions(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate]) = Action { implicit request =>
+    implicit val dateExtractor = (f: FractionCalculation) => f.calculatedAt
+
     FractionData.data.get(empref) match {
       case Some(fractions) =>
         val filtered = fractions.fractionCalculations.filterDate(fromDate, toDate).toList

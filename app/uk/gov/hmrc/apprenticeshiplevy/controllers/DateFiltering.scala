@@ -16,18 +16,13 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.controllers
 
-import play.api.libs.json.Json
-import play.api.mvc.Action
-import uk.gov.hmrc.apprenticeshiplevy.data.LevyData
-import uk.gov.hmrc.play.microservice.controller.BaseController
+import org.joda.time.LocalDate
 
-object LevyDeclarationController extends LevyDeclarationController
-
-trait LevyDeclarationController extends BaseController {
-  def declarations(empref: String, months: Option[Int]) = Action { implicit request =>
-    LevyData.data.get(empref) match {
-      case Some(ds) => Ok(Json.toJson(ds))
-      case None => NotFound
+trait DateFiltering {
+  implicit class DateFilterSyntax[T](eps: Seq[T])(implicit date: T => LocalDate) {
+    def filterDate(fromDate: Option[LocalDate], toDate: Option[LocalDate]): Seq[T] = {
+      val dateRange = DateRange(fromDate, toDate)
+      eps.filter(e => dateRange.contains(date(e)))
     }
   }
 }
