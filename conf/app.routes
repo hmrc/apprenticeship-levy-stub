@@ -1,7 +1,6 @@
 
-GET        /empref/:empref/declarations                                       uk.gov.hmrc.apprenticeshiplevy.controllers.LevyDeclarationController.declarations(empref: String, months: Option[Int])
 GET        /empref/:empref/employee/:nino                                     uk.gov.hmrc.apprenticeshiplevy.controllers.EmploymentCheckController.check(empref: String, nino: String, atDate: Option[LocalDate])
-GET        /empref/:empref/fractions                                          uk.gov.hmrc.apprenticeshiplevy.controllers.FractionController.fractions(empref: String, months: Option[Int])
+GET        /empref/:empref/fractions                                          uk.gov.hmrc.apprenticeshiplevy.controllers.FractionController.fractions(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate])
 GET        /fraction-calculation-date                                         uk.gov.hmrc.apprenticeshiplevy.controllers.FractionController.fractionCalculationDate
 
 GET        /auth/authority                                                    uk.gov.hmrc.apprenticeshiplevy.controllers.AuthController.authority
@@ -10,4 +9,4 @@ GET        /pay-as-you-earn/employers/:empref/charges/taxyear/:taxYear        uk
 
 GET        /epaye/:empref/designatory-details                                 uk.gov.hmrc.apprenticeshiplevy.controllers.EpayeController.designatoryDetails(empref: String)
 
-GET        /epaye/:empref/eps                                                 uk.gov.hmrc.apprenticeshiplevy.controllers.RtiController.eps(empref: String, months: Option[Int])
+GET        /epaye/:empref/eps                                                 uk.gov.hmrc.apprenticeshiplevy.controllers.RtiController.eps(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate])

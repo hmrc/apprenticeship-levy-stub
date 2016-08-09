@@ -23,7 +23,7 @@ import play.api.test.FakeRequest
 class FractionControllerSpec extends FlatSpec with Matchers with ScalaFutures {
 
   "GET /fractions" should "return 200" in {
-    FractionController.fractions("123/AB12345", None)(FakeRequest()).futureValue.header.status shouldBe 200
+    FractionController.fractions("123/AB12345", None, None)(FakeRequest()).futureValue.header.status shouldBe 200
   }
 
 }
