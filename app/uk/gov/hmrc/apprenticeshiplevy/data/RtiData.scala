@@ -26,6 +26,26 @@ object RtiData {
     Option(this.getClass.getResourceAsStream(path)).flatMap { is =>
       val json = scala.io.Source.fromInputStream(is).getLines().mkString("\n")
       Json.parse(json).asOpt[Seq[EmployerPaymentSummary]]
+    }.orElse {
+      val path = s"/sandbox_data/employers/$e/declarations.json"
+      Option(this.getClass.getResourceAsStream(path)).flatMap { is =>
+        val json = scala.io.Source.fromInputStream(is).getLines().mkString("\n")
+        Json.parse(json).\("declarations").asOpt[Seq[LevyDeclaration]].map { decls =>
+          decls.map(convertToEPS(EmpRefs.fromEmpref(empref), _))
+        }
+      }
     }
   }
+
+  def convertToEPS(emprefs: EmpRefs, decl: LevyDeclaration): EmployerPaymentSummary = {
+    decl match {
+      case LevyDeclaration(id, ts, Some(ceasedDate), _, _, _, _, _, _) =>
+        EmployerPaymentSummary(id, ts, emprefs, None, None, None, None, None, Some(levy(decl)),
+          None, decl.payrollPeriod.get.year,
+          Some(FinalSubmission(Some("Yes"), decl.dateCeased, decl.payrollPeriod.map(_.year))))
+    }
+  }
+
+  def levy(decl: LevyDeclaration) = ApprenticeshipLevy(decl.levyDueYTD.get, decl.payrollPeriod.get.month, decl.levyAllowanceForFullYear.get)
+  
 }

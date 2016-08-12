@@ -20,10 +20,10 @@ import org.joda.time.format.DateTimeFormat
 import org.joda.time.{LocalDate, LocalDateTime}
 import play.api.libs.json._
 
-case class PayrollMonth(year: Int, month: Int)
+case class PayrollPeriod(year: String, month: Int)
 
-object PayrollMonth {
-  implicit val formats = Json.format[PayrollMonth]
+object PayrollPeriod {
+  implicit val formats = Json.format[PayrollPeriod]
 }
 
 case class Fraction(region: String, value: BigDecimal)
@@ -38,11 +38,31 @@ object FractionCalculation {
   implicit val formats = Json.format[FractionCalculation]
 }
 
-case class LevyDeclaration(payrollMonth: PayrollMonth, amount: BigDecimal, submissionType: String, submissionDate: String)
+case class LevyDeclaration(id: Long,
+                           submissionTime: LocalDateTime,
+                           dateCeased: Option[LocalDate] = None,
+                           inactiveFrom: Option[LocalDate] = None,
+                           inactiveTo: Option[LocalDate] = None,
+                           payrollPeriod: Option[PayrollPeriod] = None,
+                           levyDueYTD: Option[BigDecimal] = None,
+                           levyAllowanceForFullYear: Option[BigDecimal] = None,
+                           noPaymentForPeriod: Option[Boolean] = None)
+
 
 object LevyDeclaration {
+  implicit val ldtFormats = new Format[LocalDateTime] {
+    val fmt = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")
+
+    override def reads(json: JsValue): JsResult[LocalDateTime] = implicitly[Reads[JsString]].reads(json).map { js =>
+      fmt.parseDateTime(js.value).toLocalDateTime
+    }
+
+    override def writes(o: LocalDateTime): JsValue = JsString(fmt.print(o))
+  }
+
   implicit val formats = Json.format[LevyDeclaration]
 }
+
 
 case class LevyDeclarations(empref: String, schemeCessationDate: Option[LocalDate], declarations: Seq[LevyDeclaration])
 
@@ -61,6 +81,11 @@ object Fractions {
 case class EmpRefs(officeNumber: String, payeRef: String, aoRef: String)
 
 object EmpRefs {
+  def fromEmpref(empref: String) = {
+    val parts = empref.split("/")
+    EmpRefs("", parts(0), parts(1))
+  }
+
   implicit val formats = Json.format[EmpRefs]
 }
 
