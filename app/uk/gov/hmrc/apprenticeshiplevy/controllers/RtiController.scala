@@ -26,7 +26,7 @@ import uk.gov.hmrc.play.microservice.controller.BaseController
 trait RtiController extends BaseController with DateFiltering {
   def eps(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate]) = Action { implicit request =>
     implicit val dateExtractor = (e: EmployerPaymentSummary) => e.submissionTime.toLocalDate
-    RtiData.data.get(empref) match {
+    RtiData.eps(empref) match {
       case Some(eps) => Ok(Json.toJson(eps.filterDate(fromDate, toDate)))
       case _ => NotFound
     }

@@ -16,10 +16,9 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.data
 
-import org.joda.time.format.{DateTimeFormat, DateTimeFormatter, ISODateTimeFormat}
+import org.joda.time.format.DateTimeFormat
 import org.joda.time.{LocalDate, LocalDateTime}
-import play.api.libs.json.{JsString, JsValue, Json, Writes}
-import uk.gov.hmrc.play.controllers.RestFormats
+import play.api.libs.json._
 
 case class PayrollMonth(year: Int, month: Int)
 
@@ -101,7 +100,7 @@ object Account {
   implicit val formats = Json.format[Account]
 }
 
-case class FinalSubmission(becauseSchemeCeased: Yes, dateSchemeCeased: Option[LocalDate], forYear: Yes)
+case class FinalSubmission(becauseSchemeCeased: Option[String], dateSchemeCeased: Option[LocalDate], forYear: Option[String])
 
 object FinalSubmission {
   implicit val formats = Json.format[FinalSubmission]
@@ -110,10 +109,10 @@ object FinalSubmission {
 case class EmployerPaymentSummary(eventId: Long,
                                   submissionTime: LocalDateTime,
                                   empRefs: EmpRefs,
-                                  noPaymentForPeriod: Yes,
+                                  noPaymentForPeriod: Option[String],
                                   noPaymentDates: Option[DateRange],
                                   periodOfInactivity: Option[DateRange],
-                                  empAllceInd: YesNo,
+                                  empAllceInd: Option[String],
                                   recoverableAmountsYTD: Option[RecoverableAmountsYTD],
                                   apprenticeshipLevy: Option[ApprenticeshipLevy],
                                   account: Option[Account],
@@ -122,11 +121,15 @@ case class EmployerPaymentSummary(eventId: Long,
 
 object EmployerPaymentSummary {
 
-  implicit val ldWrites = new Writes[LocalDateTime] {
+  implicit val ldtFormats = new Format[LocalDateTime] {
     val fmt = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")
+
+    override def reads(json: JsValue): JsResult[LocalDateTime] = implicitly[Reads[JsString]].reads(json).map { js =>
+      fmt.parseDateTime(js.value).toLocalDateTime
+    }
 
     override def writes(o: LocalDateTime): JsValue = JsString(fmt.print(o))
   }
 
-  implicit val writes = Json.writes[EmployerPaymentSummary]
+  implicit val formats = Json.format[EmployerPaymentSummary]
 }
