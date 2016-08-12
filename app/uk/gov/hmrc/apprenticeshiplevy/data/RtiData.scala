@@ -31,7 +31,7 @@ object RtiData {
 
   val record1 = EmployerPaymentSummary(
     12345678,
-    new LocalDateTime("2016-07-14T16:05:23"),
+    new LocalDateTime("2016-07-14T16:05:23.123"),
     refs,
     None, None, None, None, None,
     Some(ApprenticeshipLevy(600, 11, 15000)),
@@ -41,7 +41,7 @@ object RtiData {
 
   val record2 = EmployerPaymentSummary(
     12345679,
-    new LocalDateTime("2015-04-07T16:05:23"),
+    new LocalDateTime("2015-04-07T16:05:23.123"),
     refs,
     Some("yes"), Some(DateRange(new LocalDate("2016-03-06"), new LocalDate("2016-04-05"))), None, None, None,
     None,
@@ -52,7 +52,7 @@ object RtiData {
 
   val record3 = EmployerPaymentSummary(
     12345680,
-    new LocalDateTime("2016-05-07T16:05:23"),
+    new LocalDateTime("2016-05-07T16:05:23.123"),
     refs,
     None, None, None, None, None,
     Some(ApprenticeshipLevy(500, 1, 15000)),
@@ -62,7 +62,7 @@ object RtiData {
 
   val record4 = EmployerPaymentSummary(
     12345681,
-    new LocalDateTime("2016-06-07T16:05:23"),
+    new LocalDateTime("2016-06-07T16:05:23.123"),
     refs,
     None, None, None, None, None,
     Some(ApprenticeshipLevy(1000, 2, 15000)),
@@ -82,7 +82,7 @@ object RtiData {
 
   val record6 = EmployerPaymentSummary(
     12345683,
-    new LocalDateTime("2016-07-15T16:05:23"),
+    new LocalDateTime("2016-07-15T16:05:23.123"),
     refs,
     None, None, Some(DateRange(new LocalDate("2016-06-06"), new LocalDate("2016-09-05"))), None, None,
     None,
@@ -92,7 +92,7 @@ object RtiData {
 
   val record7 = EmployerPaymentSummary(
     12345684,
-    new LocalDateTime("2016-10-15T16:05:23"),
+    new LocalDateTime("2016-10-15T16:05:23.123"),
     refs,
     None, None, None, None, None,
     None,

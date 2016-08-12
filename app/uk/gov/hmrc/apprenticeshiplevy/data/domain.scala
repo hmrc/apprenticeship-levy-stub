@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.apprenticeshiplevy.data
 
-import org.joda.time.format.{DateTimeFormatter, ISODateTimeFormat}
+import org.joda.time.format.{DateTimeFormat, DateTimeFormatter, ISODateTimeFormat}
 import org.joda.time.{LocalDate, LocalDateTime}
 import play.api.libs.json.{JsString, JsValue, Json, Writes}
 import uk.gov.hmrc.play.controllers.RestFormats
@@ -122,6 +122,11 @@ case class EmployerPaymentSummary(eventId: Long,
 
 object EmployerPaymentSummary {
 
-  implicit val ldFormats = RestFormats.localDateTimeFormats
-  implicit val formats = Json.writes[EmployerPaymentSummary]
+  implicit val ldWrites = new Writes[LocalDateTime] {
+    val fmt = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")
+
+    override def writes(o: LocalDateTime): JsValue = JsString(fmt.print(o))
+  }
+
+  implicit val writes = Json.writes[EmployerPaymentSummary]
 }
