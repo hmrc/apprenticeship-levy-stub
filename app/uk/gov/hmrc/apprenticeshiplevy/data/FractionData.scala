@@ -17,8 +17,25 @@
 package uk.gov.hmrc.apprenticeshiplevy.data
 
 import org.joda.time.LocalDate
+import play.api.libs.json.Json
 
 object FractionData {
+
+  def fractions(empref: String): Option[Fractions] = {
+    val e = empref.replace("/", "")
+    data.get(empref).orElse(loadFractionData(empref))
+  }
+
+  def loadFractionData(empref: String): Option[Fractions] = {
+    val e = empref.replace("/", "")
+    val path = s"/sandbox_data/employers/$e/fractions.json"
+
+    Option(this.getClass.getResourceAsStream(path)).flatMap { is =>
+      val json = scala.io.Source.fromInputStream(is).getLines().mkString("\n")
+      Json.parse(json).asOpt[Fractions]
+    }
+  }
+
   val data =
     Map("123/AB12345" -> Fractions("123/AB12345", List(
       FractionCalculation(new LocalDate(2016, 3, 15), List(
