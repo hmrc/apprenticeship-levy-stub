@@ -1,4 +1,0 @@
-{
-	"code": "ERROR_TAX_YEAR_INVALID",
-	"message": "Tax Year must be of the form yyyy-yy and the year values must be consecutive. ex. 2012-13"
-}

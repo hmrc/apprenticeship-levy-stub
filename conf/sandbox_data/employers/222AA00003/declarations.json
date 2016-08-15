@@ -1,0 +1,112 @@
+{
+    "empref": "222/AA00003",
+    "declarations": [{
+        "id": 22200000301,
+        "submissionTime": "2017-05-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 1
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000302,
+        "submissionTime": "2017-06-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 2
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000303,
+        "submissionTime": "2017-07-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 3
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000304,
+        "submissionTime": "2017-08-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 4
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000305,
+        "submissionTime": "2017-09-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 5
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000306,
+        "submissionTime": "2017-10-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 6
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000307,
+        "submissionTime": "2017-11-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 7
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000308,
+        "submissionTime": "2017-12-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 8
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000309,
+        "submissionTime": "2018-01-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 9
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000310,
+        "submissionTime": "2018-02-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 10
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000311,
+        "submissionTime": "2018-03-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 11
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }, {
+        "id": 22200000312,
+        "submissionTime": "2018-04-15T12:00:00.000",
+        "payrollPeriod": {
+            "year": "17-18",
+            "month": 12
+        },
+        "levyDueYTD": 0,
+        "levyAllowanceForFullYear": 15000
+    }]
+}

@@ -1,0 +1,21 @@
+{
+  "_links": {
+    "self": {
+      "href": "/epaye/111%2AA00001"
+    },
+    "declarations": {
+      "href": "/epaye/111%2AA00001/declarations"
+    },
+    "fractions": {
+      "href": "/epaye/111%2AA00001/fractions"
+    },
+    "employment-check": {
+      "href": "/epaye/111%2AA00001/employed"
+    }
+  },
+  "employer": {
+    "name": {
+      "nameLine1": "Employer for scenario 1 scheme 1"
+    }
+  }
+}

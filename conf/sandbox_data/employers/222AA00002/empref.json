@@ -1,0 +1,21 @@
+{
+  "_links": {
+    "self": {
+      "href": "/epaye/222%2AA00002"
+    },
+    "declarations": {
+      "href": "/epaye/222%2AA00002/declarations"
+    },
+    "fractions": {
+      "href": "/epaye/222%2AA00002/fractions"
+    },
+    "employment-check": {
+      "href": "/epaye/222%2AA00002/employed"
+    }
+  },
+  "employer": {
+    "name": {
+      "nameLine1": "Employer for scenario 2 scheme 2"
+    }
+  }
+}
