@@ -26,7 +26,7 @@ object AuthController extends BaseController {
 
   def authority = Action { implicit request =>
     val accounts = Accounts(None, None, None, None, Some(new EpayeAccount("", EmpRef("123", "AB12345"))))
-    val authority = Authority("", accounts, None, None, CredentialStrength.Weak, ConfidenceLevel.L50)
+    val authority = Authority("", accounts, None, None, CredentialStrength.Weak, ConfidenceLevel.L50, None, None)
 
     Ok(Json.toJson(authority))
   }
