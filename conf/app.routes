@@ -1,7 +1,7 @@
 
-GET        /empref/:empref/employee/:nino                                     uk.gov.hmrc.apprenticeshiplevy.controllers.EmploymentCheckController.check(empref: String, nino: String, atDate: Option[LocalDate])
-GET        /empref/:empref/fractions                                          uk.gov.hmrc.apprenticeshiplevy.controllers.FractionController.fractions(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate])
-GET        /fraction-calculation-date                                         uk.gov.hmrc.apprenticeshiplevy.controllers.FractionController.fractionCalculationDate
+GET        /apprenticeship-levy/employers/:empref/employed/:nino                                     uk.gov.hmrc.apprenticeshiplevy.controllers.EmploymentCheckController.check(empref: String, nino: String, atDate: Option[LocalDate])
+GET        /apprenticeship-levy/employers/:empref/fractions                                          uk.gov.hmrc.apprenticeshiplevy.controllers.FractionController.fractions(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate])
+GET        /apprenticeship-levy/fraction-calculation-date                                         uk.gov.hmrc.apprenticeshiplevy.controllers.FractionController.fractionCalculationDate
 
 GET        /auth/authority                                                    uk.gov.hmrc.apprenticeshiplevy.controllers.AuthController.authority
 

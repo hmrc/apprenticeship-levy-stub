@@ -21,14 +21,21 @@ import play.api.libs.json.Json
 import play.api.mvc.Action
 import uk.gov.hmrc.apprenticeshiplevy.data.{FractionCalculation, FractionData}
 import uk.gov.hmrc.play.microservice.controller.BaseController
+import java.net.URLDecoder
 
 object FractionController extends FractionController
 
 trait FractionController extends BaseController with DateFiltering {
+  protected lazy val emprefParts = "^(\\d{3})([0-9A-Z]{1,10})$".r
+  protected def toSlashFormat(empref: String): String = URLDecoder.decode(empref, "UTF-8") match {
+    case emprefParts(part1, part2) => s"${part1}/${part2}"
+    case _ => empref
+  }
+
   def fractions(empref: String, fromDate: Option[LocalDate], toDate: Option[LocalDate]) = Action { implicit request =>
     implicit val dateExtractor = (f: FractionCalculation) => f.calculatedAt
 
-    FractionData.fractions(empref) match {
+    FractionData.fractions(toSlashFormat(empref)) match {
       case Some(fractions) =>
         val filtered = fractions.fractionCalculations.filterDate(fromDate, toDate).toList
         Ok(Json.toJson(fractions.copy(fractionCalculations = filtered)))

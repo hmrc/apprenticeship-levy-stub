@@ -25,6 +25,12 @@ object EmploymentCheckController extends EmploymentCheckController
 
 trait EmploymentCheckController extends BaseController {
   def check(empref: String, nino: String, atDate: Option[LocalDate]) = Action { implicit request =>
-    Ok(JsString("employed"))
+    Ok(s"""{
+  "empref": "${empref}",
+  "nino": "${nino}",
+  "fromDate": "2001-01-01",
+  "toDate": "2001-01-02",
+  "employed": true
+}""")
   }
 }
