@@ -44,6 +44,6 @@ trait FractionController extends BaseController with DateFiltering {
   }
 
   def fractionCalculationDate = Action {
-    Ok(Json.toJson(new LocalDate))
+    Ok(Json.toJson(s"""{ "date": "${new LocalDate}" }"""))
   }
 }
